@@ -61,4 +61,5 @@ export default defineConfig({
 
   markdown: {
     lineNumbers: false,
-    foot
+  },
+})

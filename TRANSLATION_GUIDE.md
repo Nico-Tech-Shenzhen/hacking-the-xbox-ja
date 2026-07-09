@@ -54,7 +54,7 @@ Never use the phrases "公式日本語版", "公認翻訳", or "正規翻訳". A
 - On first use of a technical term, show both Japanese and English: 例） リバースエンジニアリング (reverse engineering)
 - Katakana for established loanwords (e.g., ハッカー, ソルダー, フラックス).
 - Kanji compounds for native-equivalent terms where natural.
-- Footnotes: translate inline as `[^N]` markdown footnotes at the bottom of the file.
+- Footnotes: use `<sup>N</sup>` in the body and a `## 注` section at the end of the file. See **Footnote handling** below.
 
 ### Sidebars and callout boxes
 VitePress does not have a native sidebar container, so use a blockquote with a bold heading:
@@ -92,15 +92,29 @@ Preserve "Note" and "Tip" callouts as:
 
 ## Footnote handling
 
-Original footnotes appear at the bottom of PDF pages. Collect all footnotes for a chapter and render them as markdown footnotes at the end of the file:
+**Do NOT use Markdown footnote syntax in this project.** VitePress does not support `[^n]` / `[^n]:` natively (no `markdown-it-footnote` plugin is installed), and both patterns create dead links that break the build.
 
+Forbidden patterns:
+- `[^1]` inline reference → **breaks build**
+- `[^1]: note text` definition → **breaks build**
+- `[3](note text)` link-style → **breaks build**
+
+Correct format:
+
+In the body, mark the footnote call with an HTML superscript:
 ```markdown
-[^1]: 原注: 翻訳テキスト (英語原文: "original English text")
+本文テキスト<sup>1</sup>続きのテキスト
+```
+
+At the end of the file, before the `---` footer, add a `## 注` section with plain numbered lines:
+```markdown
+## 注
+
+1. 原注テキスト (英語原文: "original English text")
+2. source: NPDFunworld
 ```
 
 Always include the original English text in parentheses after the Japanese translation.
-
-**Do not encode source footnotes as `[n](text)`.** The pattern `[3](Japanese text...)` looks like a Markdown link and VitePress will treat it as a dead link, breaking the build. Use `<sup>n</sup>` in the body text if `[^n]` references are not suitable, and place the note text in a `## 注` section using plain numbered lines (e.g. `3. テキスト`), not `[n](text)` syntax.
 
 ## TODO handling
 
@@ -168,7 +182,4 @@ Before changing `translation_status` from `draft` to `review`:
 | ch09 | Chapter 9 — Sneaking in the Back Door | 139–150 | 157–170 |
 | ch10 | Chapter 10 — More Hardware Projects | 151–162 | 171–180 |
 | ch11 | Chapter 11 — Developing Software for the Xbox | 163–174 | 181–192 |
-| ch12 | Chapter 12 — Caveat Hacker | 175–193 | 193–212 |
-| ch13 | Chapter 13 — Onward! | 195–206 | 213–226 |
-| app-a | Appendix A — Where to Get Your Hacking Gear | 207–210 | 225–230 |
-|
+| ch12 | Chapter 12 — Caveat Hacker | 1
