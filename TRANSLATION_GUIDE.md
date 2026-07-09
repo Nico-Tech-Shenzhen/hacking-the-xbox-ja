@@ -100,6 +100,8 @@ Original footnotes appear at the bottom of PDF pages. Collect all footnotes for 
 
 Always include the original English text in parentheses after the Japanese translation.
 
+**Do not encode source footnotes as `[n](text)`.** The pattern `[3](Japanese text...)` looks like a Markdown link and VitePress will treat it as a dead link, breaking the build. Use `<sup>n</sup>` in the body text if `[^n]` references are not suitable, and place the note text in a `## 注` section using plain numbered lines (e.g. `3. テキスト`), not `[n](text)` syntax.
+
 ## TODO handling
 
 Use HTML comments so they are invisible to readers but visible in source:
@@ -169,8 +171,4 @@ Before changing `translation_status` from `draft` to `review`:
 | ch12 | Chapter 12 — Caveat Hacker | 175–193 | 193–212 |
 | ch13 | Chapter 13 — Onward! | 195–206 | 213–226 |
 | app-a | Appendix A — Where to Get Your Hacking Gear | 207–210 | 225–230 |
-| app-b | Appendix B — Soldering Techniques | 211–224 | 231–242 |
-| app-c | Appendix C — Getting Into PCB Layout | 225–236 | 243–256 |
-| app-d | Appendix D — Getting Started with FPGAs | 237–248 | 257–266 |
-| app-e | Appendix E — Debugging: Hints and Tips | 249–256 | 267–276 |
-| app-f | Appendix F — Xbox Hardware Reference | 257–280+ | 277–291 |
+|

@@ -8,9 +8,9 @@ by Andrew "bunnie" Huang | Copyright © 2003 by Xenatera LLC | Publisher: No Sta
 
 ---
 
-> **TODO (deployment):** The VitePress `base` in `docs/.vitepress/config.ts` is currently set to
+> **TODO (deployment):** The VitePress `base` in `docs/.vitepress/config.mts` is currently set to
 > `"/hacking-the-xbox-ja/"`. If the final GitHub repository name differs, update `base` in
-> `docs/.vitepress/config.ts` to match the actual repository name before deploying.
+> `docs/.vitepress/config.mts` to match the actual repository name before deploying.
 
 ---
 
@@ -74,4 +74,4 @@ See [CONTENT-LICENSE.md](CONTENT-LICENSE.md) for full details.
 | Prologue — README.1ST | draft |
 | Chapter 1 — Voiding the Warranty | draft |
 | Chapters 2–13 | not started |
-| Appendices A–F | not started |
+| Appendices A–F | not started 
