@@ -51,7 +51,7 @@ Never use the phrases "公式日本語版", "公認翻訳", or "正規翻訳". A
 ### Japanese writing style
 - Use natural, readable Japanese. Avoid overly literal translations that produce unnatural phrasing.
 - Technical terms: consult `glossary.tsv` first. If a term is not in the glossary, add it before translating.
-- On first use of a technical term, show both Japanese and English: 例） リバースエンジニアリング (reverse engineering)
+- On first use of a technical term, show both Japanese and English. Example: リバースエンジニアリング (reverse engineering)
 - Katakana for established loanwords (e.g., ハッカー, ソルダー, フラックス).
 - Kanji compounds for native-equivalent terms where natural.
 - Footnotes: use `<sup>N</sup>` in the body and a `## 注` section at the end of the file. See **Footnote handling** below.
@@ -133,4 +133,26 @@ Preserve "Note" and "Tip" callouts as:
 
 ## Footnote handling
 
-**Do NOT use Markdown footnote syntax in this project.** VitePress does not support `[^n]` / `[^n]:` natively (no `markdown-it-footnote` plugin is installed),
+**Do NOT use Markdown footnote syntax in this project.** VitePress does not support `[^n]` / `[^n]:` natively (no `markdown-it-footnote` plugin is installed), and those patterns render as literal bracketed text rather than working references.
+
+**Inline reference:** place an HTML superscript tag at the call site in the body:
+
+```markdown
+本文テキスト<sup>1</sup>続きのテキスト
+```
+
+**Footnote section:** add a `## 注` section at the end of the file, after the last paragraph of translated text and before the `---` attribution footer. List each footnote by number:
+
+```markdown
+## 注
+
+1. 原注テキスト（英語原文: "original English text"）
+2. source: NPDFunworld
+```
+
+Rules:
+- Preserve the original footnote numbering exactly. Do not renumber.
+- Translate footnote body text into Japanese where possible. Keep any URLs verbatim.
+- If the original footnote is a bare citation (URL or publisher name only), leaving it in English is fine.
+- The `## 注` section goes after the last paragraph of body text but before the `<small>` attribution footer.
+- Do not add HTML back-link anchors — they are not required and clutter the source.
