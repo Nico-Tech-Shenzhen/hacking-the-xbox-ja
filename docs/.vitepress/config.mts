@@ -55,5 +55,12 @@ export default defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/YOUR_USERNAME/hacking-the-xbox-ja/edit/main/docs/:path',
-      text: 'このページ
+      pattern: 'https://github.com/Nico-Tech-Shenzhen/hacking-the-xbox-ja/edit/main/docs/:path',
+      text: 'このページを編集',
+    },
+  },
+
+  markdown: {
+    lineNumbers: false,
+  },
+})
