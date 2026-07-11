@@ -1,70 +1,9 @@
+---
+title: 翻訳方針
+---
+
 # 翻訳方針
 
-## 基本方針
+このページは廃止されました。最新の翻訳方針は GitHub の `TRANSLATION_GUIDE.md` を参照してください。
 
-本プロジェクトは Andrew "bunnie" Huang 著 *Hacking the Xbox* の非公式日本語訳を提供します。以下の方針に従っています。
-
-## 翻訳の原則
-
-### 忠実性
-- 原文を要約せず、忠実に翻訳します。
-- 著者の文体・論調・語り口を可能な限り再現します。
-- 技術的な正確性を最優先します。
-
-### 技術用語の扱い
-以下は原文のまま保持します：
-- コード・擬似コード・アセンブリ言語
-- 16進数値（例: `0xDEADBEEF`）
-- 部品番号・型番（例: `Intel 80x86`）
-- URL・ファイルパス
-- 図番号（例: Figure 1-1）・表番号
-
-### カタカナ・外来語
-一般的に定着している英語由来の技術用語はカタカナ表記を用います。初出時に英語表記を括弧内に示します（例：リバースエンジニアリング (reverse engineering)）。
-
-### 専門用語の統一
-本プロジェクトで使用する主要用語の対訳：
-
-| English | 日本語 |
-|---------|--------|
-| reverse engineering | リバースエンジニアリング |
-| hardware | ハードウェア |
-| firmware | ファームウェア |
-| bootloader | ブートローダ |
-| security | セキュリティ |
-| encryption | 暗号化 |
-| hash | ハッシュ |
-| kernel | カーネル |
-| bus | バス |
-| chip | チップ |
-| exploit | エクスプロイト |
-| hacking | ハッキング |
-| hacker | ハッカー |
-
-### 図・キャプション
-図番号は原著のまま保持し、キャプションは日本語に翻訳します（例：**図1-1** ハードウェアブロック図）。
-
-## 翻訳ステータス
-
-各章は以下のステータスで管理します：
-
-| ステータス | 意味 |
-|-----------|------|
-| `draft` | 初稿完成（検証未） |
-| `review` | レビュー中 |
-| `verified` | 原文と照合済み |
-| `final` | 完成 |
-
-## 非公式性について
-
-**本翻訳は非公式 (unofficial) です。**
-
-- 著者 Andrew "bunnie" Huang による監修を受けていません。
-- No Starch Press による承認を受けていません。
-- 日本語ページでは「非公式日本語訳」と表示します。
-- 英語で「unofficial Japanese translation」と表示します。
-- 「公式日本語版」「公認翻訳」などの表現は使用しません。
-
-## 誤りの報告
-
-翻訳の誤り・改善提案は GitHub の Issue でご報告ください。
+[TRANSLATION_GUIDE.md を GitHub で開く](https://github.com/Nico-Tech-Shenzhen/hacking-the-xbox-ja/blob/main/TRANSLATION_GUIDE.md)

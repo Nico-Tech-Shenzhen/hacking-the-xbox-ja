@@ -35,7 +35,7 @@ gtag('config', 'G-E0N88X4QBG');`,
       { text: 'ホーム', link: '/' },
       { text: 'クレジット', link: '/credits' },
       { text: 'ライセンス', link: '/license' },
-      { text: '翻訳方針', link: '/translation-policy' },
+      { text: '翻訳方針', link: 'https://github.com/Nico-Tech-Shenzhen/hacking-the-xbox-ja/blob/main/TRANSLATION_GUIDE.md' },
     ],
 
     sidebar: [
@@ -65,7 +65,7 @@ gtag('config', 'G-E0N88X4QBG');`,
         items: [
           { text: 'クレジット・謝辞', link: '/credits' },
           { text: 'コンテンツライセンス', link: '/license' },
-          { text: '翻訳方針', link: '/translation-policy' },
+          { text: '翻訳方針', link: 'https://github.com/Nico-Tech-Shenzhen/hacking-the-xbox-ja/blob/main/TRANSLATION_GUIDE.md' },
         ],
       },
     ],

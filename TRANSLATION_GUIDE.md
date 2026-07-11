@@ -23,7 +23,7 @@ Every `docs/ja/*.md` file must include the following visible footer `<small>` bl
 <small>
 *原著*: *Hacking the Xbox: An Introduction to Reverse Engineering* © 2003 Xenatera LLC<br>
 *著者*: Andrew "bunnie" Huang | *出版*: No Starch Press<br>
-*日本語訳・レビュー*: ニコ技深圳コミュニティ / 高須正和（@tks） — https://takasumasakazu.net — CC BY-NC-SA 1.0<br>
+*日本語訳・レビュー*: ニコ技深圳コミュニティ / 高須正和（@tks） — [https://takasumasakazu.net](https://takasumasakazu.net) — CC BY-NC-SA 1.0<br>
 *注記*: 本翻訳は、原著の Creative Commons ライセンス条件に従って公開する翻訳コントリビューションであり、著者 bunnie からも歓迎のコメントをいただいています。出版社による公式日本語版ではありません。
 </small>
 ```
@@ -98,7 +98,7 @@ Good (first-mention → subsequent): 「はんだレジスト（soldermask）と
 - Hexadecimal values (e.g., `0xDEADBEEF`)
 - Part numbers and order numbers (e.g., `MCM order number 22-3495`)
 - URLs
-- Figure numbers and table numbers (e.g., `Figure 1-1`, `Table 2-1`)
+- Figure numbers in alt text and English source references (e.g., `Figure 1-1`, `Table 2-1`); visible Japanese labels use `図N-M` — see **Figure and caption handling** below
 - Product names, company names, brand names (e.g., Xbox, Weller WTCPT, Kester 24-6337-8802)
 - US Code citations (e.g., `17 U.S.C § 1201(f)`)
 - Footnote numbers (preserve as superscripts)
@@ -216,7 +216,8 @@ Applies to `details`, `tagline`, `description`, and any other frontmatter string
 
 ## Figure and caption handling
 
-- Preserve every figure number exactly as printed: **Figure 1-1**, **Figure 2-3**, etc.
+- **Visible Japanese caption labels and in-text figure references** must use **`図N-M`** notation (e.g., `図1-1`, `図7-3`). Do not use `Figure N-M` in visible Japanese text.
+- **Alt text** inside `![...]()` tags may retain the English `Figure N-M` form (or bilingual form) for accessibility — do not change image filenames.
 - Translate captions into Japanese below the image tag.
 - Format:
   ```markdown
@@ -288,9 +289,12 @@ Rules:
 - When the URL immediately precedes Japanese text without intervening punctuation,
   the auto-linker may include Japanese characters in the anchor. Always use
   explicit `[url](url)` to prevent this.
-- Bare `https://` URLs in `<small>` footers terminated by an HTML `<br>` tag are
-  acceptable because the `<br>` stops the auto-link cleanly. All other bare URLs
-  must use explicit Markdown link syntax.
+- **`<small>` attribution footers are not exempt.** All URLs in the credit/attribution
+  footer — including `https://takasumasakazu.net` — must use explicit Markdown link
+  syntax. The canonical footer line is:
+  ```
+  *日本語訳・レビュー*: ニコ技深圳コミュニティ / 高須正和（@tks） — [https://takasumasakazu.net](https://takasumasakazu.net) — CC BY-NC-SA 1.0<br>
+  ```
 
 **Bad** (bare URL swallows following Japanese):
 ```markdown

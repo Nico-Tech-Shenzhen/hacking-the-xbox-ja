@@ -26,7 +26,7 @@
 本翻訳に対して適切なクレジット表示を行う場合は、以下のようにしてください：
 
 > *Hacking the Xbox* ニコ技深圳コミュニティ / 高須正和による日本語訳 — 原著: Andrew "bunnie" Huang (Xenatera LLC / No Starch Press, 2003)、
-> 翻訳・レビュー: ニコ技深圳コミュニティ / 高須正和（@tks） — https://takasumasakazu.net、ライセンス: CC BY-NC-SA 1.0
+> 翻訳・レビュー: ニコ技深圳コミュニティ / 高須正和（@tks） — [https://takasumasakazu.net](https://takasumasakazu.net)、ライセンス: CC BY-NC-SA 1.0
 
 ## 原著 Acknowledgments（著者謝辞）
 
