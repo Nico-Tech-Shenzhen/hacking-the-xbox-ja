@@ -216,8 +216,48 @@ Applies to `details`, `tagline`, `description`, and any other frontmatter string
 
 ## Figure and caption handling
 
-- **Visible Japanese caption labels and in-text figure references** must use **`図N-M`** notation (e.g., `図1-1`, `図7-3`). Do not use `Figure N-M` in visible Japanese text.
-- **Alt text** inside `![...]()` tags may retain the English `Figure N-M` form (or bilingual form) for accessibility — do not change image filenames.
+### Label notation — 図N-M vs Figure N-M
+
+**All visible Japanese text must use `図N-M` notation.** This includes:
+
+- Body-text references (「図8-4に示すように」)
+- Bold captions below images (`**図8-4**: ...`)
+- Callouts, notes, and explanation paragraphs
+- Translated source references (「Figure 8-4 shows…」→「図8-4に示す...」)
+
+**Good:**
+```
+図8-4に示すように
+図8-4：暗号化されたデータ構造
+先ほどの図8-4では
+```
+
+**Bad:**
+```
+Figure 8-4に示すように
+Figure 8-4：暗号化されたデータ構造
+先ほどのFigure 8-4では
+```
+
+**Exceptions — these three contexts may keep `Figure N-M`:**
+- **Alt text** inside `![...]()` tags (accessibility / compatibility).
+- **Image filenames** — must not be changed to localize labels.
+- **Intentional source quotations** where the English label itself is the point; normal translated prose around the quotation must still use `図N-M`.
+
+### Pre-completion check
+
+Before reporting a chapter complete, run both commands and inspect every match:
+
+```
+rg "Figure [0-9]+-[0-9]+" docs/ja/chNN.md
+rg "Figure [0-9]+" docs/ja/chNN.md
+```
+
+- Match in **visible Japanese prose or a caption** → convert to `図N-M` before completing.
+- Match in **alt text, filename, HTML comment, or intentional quotation** → report it explicitly; no conversion needed.
+
+### Caption format
+
 - Translate captions into Japanese below the image tag.
 - Format:
   ```markdown
@@ -339,7 +379,7 @@ If page-level attribution is necessary, use the canonical `<small>` footer at th
 
 ## LLM translation checklist
 
-Before marking any section complete, verify all 21 items:
+Before marking any section complete, verify all 22 items:
 
 1. Japanese reader can understand the point without decoding English syntax.
 2. bunnie's voice feels direct, practical, hacker-like, and essay-like.
@@ -362,3 +402,4 @@ Before marking any section complete, verify all 21 items:
 19. No duplicated heading/title fragments from OCR/extraction artifacts; quoted chapter titles verified against source/chapter-map.json.
 20. Bit/byte units accurate (Mbit ≠ MB); byte equivalent added on first mention of flash capacity.
 21. No credit/license blockquote under any chapter title; attribution is in the bottom `<small>` footer only.
+22. No English figure labels (`Figure N-M`) in visible Japanese prose or captions; all must be `図N-M`. Verified with `rg "Figure [0-9]+-[0-9]+" docs/ja/chNN.md` — only alt text, filenames, HTML comments, and intentional quotations are exempt.

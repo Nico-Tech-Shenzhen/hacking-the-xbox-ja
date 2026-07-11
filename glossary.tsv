@@ -112,3 +112,4 @@ man-in-the-middle attack	中間者攻撃	通信経路に割り込んで盗聴・
 RC-4	RC-4	ストリーム暗号。XboxセキュリティバージョンでBIOSイメージの暗号化に使われた対称暗号
 RSA	RSA	公開鍵暗号アルゴリズム。Xboxバージョン1.1セキュリティでFBLによるフラッシュROMデジタル署名検証に使用
 SHA-1	SHA-1	暗号学的ハッシュ関数。Xboxバージョン1.1セキュリティでデジタル署名検証に使用
+Figure N-M	図N-M	Visible Japanese prose and captions must use 図N-M (e.g. 図8-4). Do not use Figure N-M in translated text. Alt text and image filenames are exempt.
