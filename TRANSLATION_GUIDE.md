@@ -304,6 +304,35 @@ Rules:
 （[http://www.xenatera.com/bunnie](http://www.xenatera.com/bunnie)）に記録して
 ```
 
+## Credit placement
+
+- Do not place a credit/license block directly under each chapter title. Chapter pages start with chapter content, not attribution.
+- Keep credit/license information in: the site homepage footer; the credits page (`docs/credits.md`); or a single compact `<small>` footer at the end of a page if needed.
+- Do not duplicate the same credit information at both the top and bottom of a chapter page.
+- Do not use a blockquote-style credit zone under headings.
+- Avoid visually dense one-line or multi-line credit blocks at the top of content pages.
+- The canonical credit text is maintained in `TRANSLATION_GUIDE.md` and credit-related pages, not repeated prominently at the top of every chapter.
+
+**Bad:**
+```markdown
+# 第6章　最高のXboxゲーム：セキュリティハッキング
+
+> **原著**: Hacking the Xbox ...
+> **著者**: Andrew "bunnie" Huang
+> **著作権**: Copyright © 2003 ...
+> **出版**: No Starch Press
+> **本翻訳**: ニコ技深圳コミュニティ ...
+```
+
+**Good:**
+```markdown
+# 第6章　最高のXboxゲーム：セキュリティハッキング
+
+本文から始める。
+```
+
+If page-level attribution is necessary, use the canonical `<small>` footer at the bottom only (see `## Attribution footer` below).
+
 ## LLM translation checklist
 
 Before marking any section complete, verify all 15 items:
@@ -328,3 +357,4 @@ Before marking any section complete, verify all 15 items:
 18. No English emphasis markers (NOT, ONLY, etc.) left in Japanese text; emphasis expressed with 「必ず」 or equivalent natural Japanese.
 19. No duplicated heading/title fragments from OCR/extraction artifacts; quoted chapter titles verified against source/chapter-map.json.
 20. Bit/byte units accurate (Mbit ≠ MB); byte equivalent added on first mention of flash capacity.
+21. No credit/license blockquote under any chapter title; attribution is in the bottom `<small>` footer only.

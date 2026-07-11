@@ -13,14 +13,6 @@ license: "CC BY-NC-SA 1.0"
 
 # 読者のみなさんへ
 
-> **原著**: *Hacking the Xbox: An Introduction to Reverse Engineering*
-> **著者**: Andrew "bunnie" Huang
-> **著作権**: Copyright © 2003 by Xenatera LLC
-> **出版**: No Starch Press
-> **本翻訳**: ニコ技深圳コミュニティ / 高須正和による日本語訳（CC BY-NC-SA 1.0）
-
----
-
 読者のみなさんへ、
 
 本書をダウンロードして読んでくれてありがとう。No Starch Pressと僕は、Aaron Swartzを追悼して、この『Hacking the Xbox』の無料電子書籍版を公開することにした。本書を読む中で、自由がハッキングコミュニティにとっていかに重要かを改めて感じ、Aaronが信じた大義を支持する気持ちになってもらえたら嬉しい。

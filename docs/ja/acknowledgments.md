@@ -13,14 +13,6 @@ license: "CC BY-NC-SA 1.0"
 
 # 謝辞
 
-> **原著**: *Hacking the Xbox: An Introduction to Reverse Engineering*
-> **著者**: Andrew "bunnie" Huang
-> **著作権**: Copyright © 2003 by Xenatera LLC
-> **出版**: No Starch Press
-> **本翻訳**: ニコ技深圳コミュニティ / 高須正和による日本語訳（CC BY-NC-SA 1.0）
-
----
-
 献身的で愛情深い両親に感謝する。今の僕を育ててくれた。
 
 オンラインハッキングコミュニティのアドバイスと指導にも感謝したい。特に、政府による迫害や雇用主からの報復を恐れて匿名で活動せざるを得ない人たちに。
