@@ -4,13 +4,13 @@ export default defineConfig({
   lang: 'ja',
   title: 'Hacking the Xbox 日本語訳',
   description:
-    'Hacking the Xbox の日本語訳。翻訳: 高須正和 / TAKASU Masakazu（@tks） — https://takasumasakazu.net',
+    'Hacking the Xbox の日本語訳。ニコ技深圳コミュニティ / 高須正和（@tks）による翻訳コントリビューション。',
 
   base: '/hacking-the-xbox-ja/',
 
   head: [
     ['meta', { name: 'robots', content: 'noindex' }],
-    ['meta', { name: 'author', content: 'Andrew "bunnie" Huang (原著); 翻訳: 高須正和 / TAKASU Masakazu' }],
+    ['meta', { name: 'author', content: 'Andrew "bunnie" Huang (原著); 翻訳: ニコ技深圳コミュニティ / 高須正和 / TAKASU Masakazu' }],
   ],
 
   themeConfig: {
@@ -49,7 +49,7 @@ export default defineConfig({
 
     footer: {
       message:
-        '本サイトは高須正和（@tks）による日本語訳です。著者 bunnie からも歓迎のコメントをいただいています。原著は Andrew "bunnie" Huang および No Starch Press に帰属します。',
+        'ニコ技深圳コミュニティ / 高須正和（@tks）による日本語訳コントリビューションです。著者 bunnie からも歓迎のコメントをいただいています。原著は Andrew "bunnie" Huang および No Starch Press に帰属します。',
       copyright:
         '翻訳テキスト © 翻訳者 | 原著 © 2003 Xenatera LLC (著者: Andrew "bunnie" Huang) | CC BY-NC-SA 1.0',
     },

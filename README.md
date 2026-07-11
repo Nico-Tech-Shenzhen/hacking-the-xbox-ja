@@ -6,7 +6,7 @@
 This repository hosts a Japanese translation of Andrew "bunnie" Huang's *Hacking the Xbox*, published under CC BY-NC-SA 1.0.
 The author has confirmed that translation is allowed under the Creative Commons license.
 This is not a publisher-issued official Japanese edition.
-Translator: 高須正和 / TAKASU Masakazu（@tks） — https://takasumasakazu.net
+Translation: ニコ技深圳コミュニティ / 高須正和 / TAKASU Masakazu（@tks） — https://takasumasakazu.net
 
 読むだけなら、npm install やローカルビルドは不要です。  
 GitHub Pages の公開サイトを開けば、そのまま読めます。

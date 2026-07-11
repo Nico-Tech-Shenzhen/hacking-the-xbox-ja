@@ -12,10 +12,10 @@ hero:
       text: クレジット
       link: /credits
 features:
-  - title: 日本語訳コントリビューション
+  - title: 翻訳コントリビューション
     details: >-
       本翻訳は、原著の Creative Commons ライセンス条件に従って公開する翻訳コントリビューションです。
-      翻訳は高須正和 / TAKASU Masakazu（@tks）によるものです。著者 bunnie からも歓迎のコメントをいただいています。
+      翻訳・レビューはニコ技深圳コミュニティ / 高須正和（@tks）によるものです。著者 bunnie からも歓迎のコメントをいただいています。
   - title: CC BY-NC-SA 1.0
     details: 翻訳テキストおよび抽出画像は CC BY-NC-SA 1.0 ライセンスの下で公開されています（原著ライセンスに従います）。
   - title: 技術的忠実性
@@ -26,7 +26,7 @@ features:
 
 このサイトは、Andrew "bunnie" Huang 著 *Hacking the Xbox: An Introduction to Reverse Engineering* (No Starch Press, 2003) の日本語訳を掲載しています。
 
-本翻訳は、原著の Creative Commons ライセンス条件に従って公開する翻訳コントリビューションです。翻訳は高須正和 / TAKASU Masakazu（@tks） — https://takasumasakazu.net によるものです。著者 bunnie からも歓迎のコメントをいただいています。出版社による公式日本語版ではありません。
+本翻訳は、原著の Creative Commons ライセンス条件に従って公開する翻訳コントリビューションです。翻訳・レビューはニコ技深圳コミュニティ / 高須正和（@tks） — https://takasumasakazu.net によるものです。著者 bunnie からも歓迎のコメントをいただいています。出版社による公式日本語版ではありません。
 
 原著は Aaron Swartz を追悼して [無償公開](https://nostarch.com/xboxfree) されています（2013年）。
 
@@ -42,7 +42,7 @@ features:
 <small>
 *原著*: *Hacking the Xbox: An Introduction to Reverse Engineering* © 2003 Xenatera LLC<br>
 *著者*: Andrew "bunnie" Huang | *出版*: No Starch Press<br>
-*本翻訳*: 高須正和による日本語訳 — CC BY-NC-SA 1.0<br>
-*翻訳*: 高須正和 / TAKASU Masakazu（@tks） — https://takasumasakazu.net<br>
+*本翻訳*: ニコ技深圳コミュニティ / 高須正和による日本語訳 — CC BY-NC-SA 1.0<br>
+*翻訳・レビュー*: ニコ技深圳コミュニティ / 高須正和（@tks） — https://takasumasakazu.net<br>
 *注記*: 本翻訳は、原著の Creative Commons ライセンス条件に従って公開する翻訳コントリビューションであり、著者 bunnie からも歓迎のコメントをいただいています。出版社による公式日本語版ではありません。
 </small>
