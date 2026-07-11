@@ -57,6 +57,7 @@ gtag('config', 'G-E0N88X4QBG');`,
           { text: '第5章 壊れた電源を交換する', link: '/ja/ch05' },
           { text: '第6章 最高のXboxゲーム：セキュリティハッキング', link: '/ja/ch06' },
           { text: '第7章 セキュリティ入門', link: '/ja/ch07' },
+          { text: '第8章 Xboxセキュリティのリバースエンジニアリング', link: '/ja/ch08' },
         ],
       },
       {
