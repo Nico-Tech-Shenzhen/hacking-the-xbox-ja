@@ -156,6 +156,12 @@ Use **「僕」** (not 「私」) for bunnie's first-person narration throughout
 - **Resistor / energy dissipation:** Avoid 「余剰エネルギーを除去する」. Prefer 「余分なエネルギーを熱として逃がす」. See `glossary.tsv` entry `resistor removes excess energy`.
 - **Bed-of-nails tester:** Explain the physical setup; do not use bare 「ベッドオブネイルズテスター」 or 「一斉に探針される」. Good: 「針山のように多数のプローブを並べた検査治具を使い、テストポイントに一斉に接触させて検査する（ベッド・オブ・ネイルズ治具）」. See `glossary.tsv` entry `bed-of-nails tester`.
 - **Abbreviation first use:** Expand on first mention: Japanese term、つまり ABBR（English expansion）. After first mention: abbreviation alone. Example: 「算術論理演算装置、つまり ALU（Arithmetic Logic Unit）」→ 以後「ALU」.
+- **Culturally specific hobby/event terms (swapfest, swap meet):** Explain on first mention; do not leave bare katakana without context.
+  - 「swapfest」/「swap meet」: explain as 「中古・ジャンク機材が集まる交換市」 on first mention, then use 「スワップフェスト」.
+  - For instruments, use the full name on first mention: 「オシロスコープ」 not 「スコープ」 alone; 「ロジックアナライザ」 not 「アナライザ」 alone.
+  - Good: 「中古・ジャンク機材が集まるスワップフェストは、古いオシロスコープやロジックアナライザを安く手に入れる絶好の場所だ。」
+  - Bad: 「スワップフェストは古いスコープやアナライザを安く手に入れる絶好の場所だ。」
+
 
 ### Callout boxes
 
@@ -204,6 +210,25 @@ Applies to `details`, `tagline`, `description`, and any other frontmatter string
 - Do not guess which image file corresponds to which figure. Only link images confirmed in `source/extract/figures-manifest.json`.
 - If a chapter references a figure number but no image has been extracted yet, leave the TODO comment and preserve the in-text figure reference.
 - During chapter review, report all figure references that lack a corresponding extracted image file.
+- **Multiple figures on the same source page (full-page renders):** When two or more figures appear on the same PDF page and the project uses a full-page render, insert the image **once** and place all captions beneath it. Do not repeat the same `![...](/images/pageNNN-render.png)` tag for each figure.
+  - Use a combined alt-text: `![Figure 1-7 and Figure 1-8: ...]`
+  - List captions in order: `**図1-7**: ... ` (two trailing spaces for line break) then `**図1-8**: ...`
+  - Only use separate image tags if the figures have been individually cropped into separate files.
+
+  **Bad** (same file repeated):
+  ```markdown
+  ![Figure 1-7](/images/page-045-render.png)
+  **図1-7**: ...
+  ![Figure 1-8](/images/page-045-render.png)
+  **図1-8**: ...
+  ```
+  **Good** (single tag, both captions):
+  ```markdown
+  ![Figure 1-7 and Figure 1-8](/images/page-045-render.png)
+  **図1-7**: ...  
+  **図1-8**: ...
+  ```
+
 
 ## Footnote handling
 
