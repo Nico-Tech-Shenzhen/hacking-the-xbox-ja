@@ -38,6 +38,7 @@ export default defineConfig({
           { text: '第1章 リバースエンジニアリング入門', link: '/ja/ch01' },
           { text: '第2章 箱の中で考える', link: '/ja/ch02' },
           { text: '第3章 青色LEDを取り付ける', link: '/ja/ch03' },
+          { text: '第4章 USBアダプタを作る', link: '/ja/ch04' },
         ],
       },
       {
