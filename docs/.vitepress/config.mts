@@ -39,6 +39,7 @@ export default defineConfig({
           { text: '第2章 箱の中で考える', link: '/ja/ch02' },
           { text: '第3章 青色LEDを取り付ける', link: '/ja/ch03' },
           { text: '第4章 USBアダプタを作る', link: '/ja/ch04' },
+          { text: '第5章 壊れた電源を交換する', link: '/ja/ch05' },
         ],
       },
       {
