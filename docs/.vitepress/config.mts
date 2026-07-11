@@ -56,6 +56,7 @@ gtag('config', 'G-E0N88X4QBG');`,
           { text: '第4章 USBアダプタを作る', link: '/ja/ch04' },
           { text: '第5章 壊れた電源を交換する', link: '/ja/ch05' },
           { text: '第6章 最高のXboxゲーム：セキュリティハッキング', link: '/ja/ch06' },
+          { text: '第7章 セキュリティ入門', link: '/ja/ch07' },
         ],
       },
       {
@@ -70,18 +71,4 @@ gtag('config', 'G-E0N88X4QBG');`,
 
     footer: {
       message:
-        'ニコ技深圳コミュニティ / 高須正和（@tks）による日本語訳コントリビューションです。著者 bunnie からも歓迎のコメントをいただいています。原著は Andrew "bunnie" Huang および No Starch Press に帰属します。',
-      copyright:
-        '翻訳テキスト © 翻訳者 | 原著 © 2003 Xenatera LLC (著者: Andrew "bunnie" Huang) | CC BY-NC-SA 1.0',
-    },
-
-    editLink: {
-      pattern: 'https://github.com/Nico-Tech-Shenzhen/hacking-the-xbox-ja/edit/main/docs/:path',
-      text: 'このページを編集',
-    },
-  },
-
-  markdown: {
-    lineNumbers: false,
-  },
-})
+        'ニコ技深圳コミュニティ / 高須正和（@tks）による日本語訳コントリビューションです。著者 bunnie からも歓迎のコメントをいただいています。原著は Andrew "bunnie" Huang および
