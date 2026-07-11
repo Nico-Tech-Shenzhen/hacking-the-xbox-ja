@@ -101,3 +101,6 @@ flying probe tester	フライングプローブテスタ / フライングプロ
 swapfest / swap meet	中古・ジャンク機材が集まる交換市（スワップフェスト）	初出: 「中古・ジャンク機材が集まる交換市、いわゆるスワップフェスト」。以後: 「スワップフェスト」。「スワップフェスト」単独・説明なしの初出は避ける。同じ文で計測器を挙げる場合は省略形（スコープ、アナライザ）でなく正式名称を使うこと
 alligator clip	ワニ口クリップ	Use ワニ口クリップ (standard Japanese electronics term). Avoid アリゲータークリップ unless the text is specifically discussing the English term itself.
 third hand tool / helping hands	「第三の手」ツール / ワニ口クリップ付きの「第三の手」ツール	For the soldering aid with clips, use ワニ口クリップ付きの「第三の手」ツール. Avoid アリゲータークリップ付き.
+NOT / emphasized NOT	「必ず」 / 絶対に / 忘れずに	Do not leave English emphasis words (NOT, ONLY, etc.) in Japanese text. For warnings and safety instructions, render emphasis as 「必ず」, 「絶対に」, or similar natural Japanese.
+Mbit	Mbit（メガビット）	Mbit = megabit, not megabyte. Distinct from MB. On first mention of flash memory capacity, add byte equivalent: 8Mbit（1MB）のフラッシュROM. Never write 8MB when source says 8Mbit.
+8Mbit flash	8Mbit（1MB）のフラッシュROM / 8Mbit（1MB）のフラッシュメモリ	On first mention, always include the byte equivalent in parentheses. 8Mbit = 1MB. Avoid: 8MB; 8Mバイト; 8Mbitのフラッシュ alone on first mention if unit is unclear.

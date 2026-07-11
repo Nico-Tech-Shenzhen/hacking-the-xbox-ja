@@ -166,6 +166,22 @@ Use **「僕」** (not 「私」) for bunnie's first-person narration throughout
   - For the soldering aid with clips, use 「ワニ口クリップ付きの「第三の手」ツール」. Avoid 「アリゲータークリップ付き」.
   - General principle: if a widely used Japanese electronics term exists (e.g., ワニ口クリップ、ハンダごて、など), prefer it over a literal katakana rendering of the English.
 
+- **Emphasis and negation:** Do not leave English emphasis words such as NOT in Japanese text. Convert them into natural Japanese. Preserve the full force of the original warning.
+  - For safety instructions use 「必ず」, 「絶対に」, or 「忘れずに」 depending on severity.
+  - ×「コンセントからNOT抜いてあること」→ ○「コンセントから「必ず」抜いてあること」
+  - Do not mechanically carry over English emphasis markers into Japanese prose.
+
+- **Duplicated heading/title fragments (OCR/extraction artifacts):** Watch for artifacts where a heading, chapter title, or quoted title is duplicated inside itself.
+  - Verify suspicious quoted titles against `source/chapter-map.json` or the source extract before changing.
+  - Remove accidental duplicate fragments when fixing text. Do not invent new titles.
+  - ×「第8章「XboxセキュリティのリバースエンジニアリングXboxセキュリティ」」→ ○「第8章「Xboxセキュリティのリバースエンジニアリング」」
+
+- **Bit/byte capacity notation:** Preserve bit/byte units accurately. Do not confuse Mbit with MB.
+  - On first mention of flash memory capacity, add the byte equivalent: 8Mbit（1MB）のフラッシュROM.
+  - ×「8Mbitのフラッシュ」（first mention, unit unclear）→ ○「8Mbit（1MB）のフラッシュROM」
+  - Never write 8MB when the source says 8Mbit. 8Mbit = 8メガビット = 1メガバイト.
+  - After first mention, 8Mbit alone is acceptable when context is clear.
+
 
 ### Callout boxes
 
@@ -309,3 +325,6 @@ Before marking any section complete, verify all 15 items:
 15. Links, YAML, figures, and footnotes are valid; no mojibake or "\ufffd".
 17. No bare URLs directly followed by Japanese text; all such URLs use explicit `[url](url)` Markdown syntax.
 16. Abbreviations are expanded on first mention: Japanese term、つまり ABBR（English expansion）; abbreviation alone after that.
+18. No English emphasis markers (NOT, ONLY, etc.) left in Japanese text; emphasis expressed with 「必ず」 or equivalent natural Japanese.
+19. No duplicated heading/title fragments from OCR/extraction artifacts; quoted chapter titles verified against source/chapter-map.json.
+20. Bit/byte units accurate (Mbit ≠ MB); byte equivalent added on first mention of flash capacity.
