@@ -11,6 +11,21 @@ export default defineConfig({
   head: [
     ['meta', { name: 'robots', content: 'noindex' }],
     ['meta', { name: 'author', content: 'Andrew "bunnie" Huang (原著); 翻訳: ニコ技深圳コミュニティ / 高須正和 / TAKASU Masakazu' }],
+    [
+      'script',
+      {
+        async: '',
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-E0N88X4QBG',
+      },
+    ],
+    [
+      'script',
+      {},
+      `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-E0N88X4QBG');`,
+    ],
   ],
 
   themeConfig: {
