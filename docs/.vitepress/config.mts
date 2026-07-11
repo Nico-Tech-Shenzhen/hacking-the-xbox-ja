@@ -2,9 +2,9 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   lang: 'ja',
-  title: 'Hacking the Xbox — 非公式日本語訳',
+  title: 'Hacking the Xbox 日本語訳',
   description:
-    'Andrew "bunnie" Huang 著『Hacking the Xbox: An Introduction to Reverse Engineering』の非公式日本語訳。CC BY-NC-SA 1.0 ライセンスに基づく非営利翻訳です。',
+    'Andrew "bunnie" Huang 著『Hacking the Xbox: An Introduction to Reverse Engineering』の有志による日本語訳。CC BY-NC-SA 1.0 ライセンスに基づくコントリビューションです。',
 
   base: '/hacking-the-xbox-ja/',
 
@@ -14,7 +14,7 @@ export default defineConfig({
   ],
 
   themeConfig: {
-    siteTitle: 'Hacking the Xbox 非公式日本語訳',
+    siteTitle: 'Hacking the Xbox 日本語訳',
 
     nav: [
       { text: 'ホーム', link: '/' },
@@ -49,7 +49,7 @@ export default defineConfig({
 
     footer: {
       message:
-        '本サイトは非公式・非営利の翻訳プロジェクトです。原著は Andrew "bunnie" Huang および No Starch Press に帰属します。',
+        '本サイトは有志による日本語訳コントリビューションです。著者 bunnie からも歓迎のコメントをいただいています。原著は Andrew "bunnie" Huang および No Starch Press に帰属します。',
       copyright:
         '翻訳テキスト © 翻訳者 | 原著 © 2003 Xenatera LLC (著者: Andrew "bunnie" Huang) | CC BY-NC-SA 1.0',
     },

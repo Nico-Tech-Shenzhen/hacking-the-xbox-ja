@@ -1,10 +1,10 @@
-# Translation Guide — Hacking the Xbox 非公式日本語訳
+# Translation Guide — Hacking the Xbox 日本語訳
 
 See `CLAUDE.md` for operational rules. This guide covers substance.
 
 ## Project scope
 
-Unofficial Japanese translation (非公式日本語訳) of:
+Japanese translation of:
 
 > *Hacking the Xbox: An Introduction to Reverse Engineering*  
 > Author: Andrew "bunnie" Huang  
@@ -23,14 +23,14 @@ Every `docs/ja/*.md` file must include the following visible footer `<small>` bl
 <small>
 *原著*: *Hacking the Xbox: An Introduction to Reverse Engineering* © 2003 Xenatera LLC<br>
 *著者*: Andrew "bunnie" Huang | *出版*: No Starch Press<br>
-*本翻訳*: 日本語訳 — CC BY-NC-SA 1.0<br>
+*本翻訳*: 有志による日本語訳 — CC BY-NC-SA 1.0<br>
 *翻訳*: TAKASU Masakazu（@tks） — https://takasumasakazu.net<br>
-*注記*: 著者より、Creative Commons ライセンスに基づく翻訳可の確認を受けています。出版社による公式日本語版ではありません。
+*注記*: 本翻訳は、原著の Creative Commons ライセンス条件に従って公開するコントリビューションであり、著者 bunnie からも歓迎のコメントをいただいています。出版社による公式日本語版ではありません。
 </small>
 ```
 
 Never use the phrases "公式日本語版", "公認翻訳", or "正規翻訳".
-Do not describe the translation as "非公式日本語訳" — the author confirmed translation is permitted under CC BY-NC-SA 1.0. Use "日本語訳" instead.
+Do not describe the translation as "非公式日本語訳". Use "有志による日本語訳" — the author has welcomed this translation contribution.
 
 ## Translation style
 

@@ -21,12 +21,12 @@
 
 ## 翻訳プロジェクト
 
-本翻訳は有志による**非公式・非営利**プロジェクトです。翻訳者は原著の権利を主張しません。
+本翻訳は有志による日本語訳コントリビューションです。翻訳者は原著の権利を主張しません。
 
 本翻訳に対して適切なクレジット表示を行う場合は、以下のようにしてください：
 
-> *Hacking the Xbox* 非公式日本語訳 — 原著: Andrew "bunnie" Huang (Xenatera LLC / No Starch Press, 2003)、
-> 翻訳: 有志、ライセンス: CC BY-NC-SA 1.0
+> *Hacking the Xbox* 有志による日本語訳 — 原著: Andrew "bunnie" Huang (Xenatera LLC / No Starch Press, 2003)、
+> 翻訳: TAKASU Masakazu（@tks）、ライセンス: CC BY-NC-SA 1.0
 
 ## 原著 Acknowledgments（著者謝辞）
 
@@ -41,6 +41,6 @@
 
 ## 免責事項
 
-- 本翻訳は著者 Andrew "bunnie" Huang、著作権者 Xenatera LLC、および出版社 No Starch Press による**公認翻訳ではありません**。
+- 本翻訳は著者 Andrew "bunnie" Huang、著作権者 Xenatera LLC、および出版社 No Starch Press による**公式日本語版ではありません**。著者 bunnie には翻訳プロジェクトへの歓迎コメントをいただいています。
 - 翻訳の正確性については最善を尽くしていますが、技術的内容の最終確認は原著 (PDF) を参照してください。
 - 本サイトは商業目的では運営していません。広告収入を得ていません。
