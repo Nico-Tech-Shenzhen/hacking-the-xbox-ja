@@ -104,3 +104,11 @@ third hand tool / helping hands	「第三の手」ツール / ワニ口クリッ
 NOT / emphasized NOT	「必ず」 / 絶対に / 忘れずに	Do not leave English emphasis words (NOT, ONLY, etc.) in Japanese text. For warnings and safety instructions, render emphasis as 「必ず」, 「絶対に」, or similar natural Japanese.
 Mbit	Mbit（メガビット）	Mbit = megabit, not megabyte. Distinct from MB. On first mention of flash memory capacity, add byte equivalent: 8Mbit（1MB）のフラッシュROM. Never write 8MB when source says 8Mbit.
 8Mbit flash	8Mbit（1MB）のフラッシュROM / 8Mbit（1MB）のフラッシュメモリ	On first mention, always include the byte equivalent in parentheses. 8Mbit = 1MB. Avoid: 8MB; 8Mバイト; 8Mbitのフラッシュ alone on first mention if unit is unclear.
+jam table	ジャムテーブル	Xboxシークレットブートコードがハードウェア初期化に使うオペコードテーブル。フラッシュROM内の暗号化されていない領域に格納されている。Xbox-Linuxコミュニティでは「X-code」とも呼ばれる
+2BL	2BL（セカンドブートローダ）	Second Boot Loader。シークレットブートROMによって復号される第2段階のブートローダ。カーネルイメージの復号・解凍が主な役割
+FBL	FBL（フラッシュブートローダ）	Flash Boot Loader。Xboxセキュリティバージョン1.1で導入された中間ブートローダ。シークレットブートROM内のハードコード値でハッシュ検証される
+TEA	TEA（Tiny Encryption Algorithm）	超軽量暗号アルゴリズム。David WheelerとRoger Needhamが設計。Xboxバージョン1.1セキュリティではFBL検証ハッシュとして使われたが、関連鍵の弱点が突かれた
+man-in-the-middle attack	中間者攻撃	通信経路に割り込んで盗聴・改ざんを行う攻撃。バス信号の過剰駆動などハードウェアレベルでも実施可能
+RC-4	RC-4	ストリーム暗号。XboxセキュリティバージョンでBIOSイメージの暗号化に使われた対称暗号
+RSA	RSA	公開鍵暗号アルゴリズム。Xboxバージョン1.1セキュリティでFBLによるフラッシュROMデジタル署名検証に使用
+SHA-1	SHA-1	暗号学的ハッシュ関数。Xboxバージョン1.1セキュリティでデジタル署名検証に使用
