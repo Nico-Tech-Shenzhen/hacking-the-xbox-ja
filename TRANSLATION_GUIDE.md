@@ -212,6 +212,42 @@ Applies to `details`, `tagline`, `description`, and any other frontmatter string
 
 Rules: preserve original numbering; translate body text where possible; keep URLs verbatim; no HTML back-link anchors.
 
+
+## URLs and Markdown links
+
+**Never leave a bare URL directly followed by Japanese text.** VitePress auto-links bare
+URLs via markdown-it linkify; if Japanese text immediately follows without a space or
+terminating punctuation, the Japanese characters may be swallowed into the anchor.
+
+Rules:
+- Always use explicit Markdown link syntax: `[visible text](url)`.
+- Markdown link delimiters must be ASCII `[` `]` `(` `)`, never full-width brackets.
+- The link text must contain only the intended clickable text.
+- Japanese particles and punctuation must stay **outside** the link.
+- When the URL itself is the visible label (typical for source footnotes), use:  
+  `[http://example.com](http://example.com)`
+- When wrapping a URL in Japanese parentheses, place the full Markdown link inside:  
+  `（[http://example.com](http://example.com)）に`  
+  **not** `（http://example.com）に`
+- When the URL immediately precedes Japanese text without intervening punctuation,
+  the auto-linker may include Japanese characters in the anchor. Always use
+  explicit `[url](url)` to prevent this.
+- Bare `https://` URLs in `<small>` footers terminated by an HTML `<br>` tag are
+  acceptable because the `<br>` stops the auto-link cleanly. All other bare URLs
+  must use explicit Markdown link syntax.
+
+**Bad** (bare URL swallows following Japanese):
+```markdown
+論文はhttp://www.example.com/paper.pdfで見ることができる。
+（http://www.xenatera.com/bunnie）に記録して
+```
+
+**Good**:
+```markdown
+論文は[http://www.example.com/paper.pdf](http://www.example.com/paper.pdf)で見ることができる。
+（[http://www.xenatera.com/bunnie](http://www.xenatera.com/bunnie)）に記録して
+```
+
 ## LLM translation checklist
 
 Before marking any section complete, verify all 15 items:
@@ -231,4 +267,5 @@ Before marking any section complete, verify all 15 items:
 13. PCB terms follow `glossary.tsv` (soldermask → はんだレジスト; trace → 配線; ビア = layer holes only).
 14. Source "sidebar" headings are translated as 「コラム」 or 「囲み記事」, not 「サイドバー」.
 15. Links, YAML, figures, and footnotes are valid; no mojibake or "\ufffd".
+17. No bare URLs directly followed by Japanese text; all such URLs use explicit `[url](url)` Markdown syntax.
 16. Abbreviations are expanded on first mention: Japanese term、つまり ABBR（English expansion）; abbreviation alone after that.
