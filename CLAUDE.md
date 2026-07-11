@@ -170,6 +170,10 @@ Each wrapper delegates to the matching `.claude/skills/*/SKILL.md` for the full 
 | `/xbox-full-recheck` | Revalidate all translated chapters against latest rules |
 | `/xbox-rule-update <description>` | Update TRANSLATION_GUIDE.md / glossary.tsv only |
 
+**`/xbox-rule-update` is rule/glossary-only.** It must not edit translated chapter files or retranslate content.
+Use it when adding preferred terms, banned terms, style rules, or recurring translation decisions.
+Do not duplicate the full skill content here — see `.claude/skills/xbox-rule-update/SKILL.md`.
+
 - **Commands** (`.claude/commands/`): concise, register the slash name, delegate to skills.
 - **Skills** (`.claude/skills/`): full step-by-step procedures referenced by commands.
 
