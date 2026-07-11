@@ -13,7 +13,9 @@ hero:
       link: /credits
 features:
   - title: 日本語訳コントリビューション
-    details: 本翻訳は、原著の Creative Commons ライセンス条件に従って公開する翻訳コントリビューションです。翻訳: 高須正和 / TAKASU Masakazu（@tks）。著者 bunnie からも歓迎のコメントをいただいています。
+    details: >-
+      本翻訳は、原著の Creative Commons ライセンス条件に従って公開する翻訳コントリビューションです。
+      翻訳は高須正和 / TAKASU Masakazu（@tks）によるものです。著者 bunnie からも歓迎のコメントをいただいています。
   - title: CC BY-NC-SA 1.0
     details: 翻訳テキストおよび抽出画像は CC BY-NC-SA 1.0 ライセンスの下で公開されています（原著ライセンスに従います）。
   - title: 技術的忠実性

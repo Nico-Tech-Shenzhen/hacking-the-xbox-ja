@@ -158,6 +158,20 @@ Preserve "Note" and "Tip" callouts as:
 > 翻訳テキスト
 ```
 
+### YAML frontmatter
+
+VitePress uses YAML for page frontmatter. YAML treats unquoted colons as mapping separators, which breaks parsing.
+
+**Rule:** any frontmatter value that contains a colon (including Japanese 「翻訳:」, URLs, or subtitle-style strings) must be either:
+- quoted with double quotes: `details: "翻訳: 高須正和"`
+- or written as a block scalar:
+  ```yaml
+  details: >-
+    翻訳は高須正和 / TAKASU Masakazu（@tks）によるものです。
+  ```
+
+This applies to `details`, `tagline`, `description`, and any other frontmatter string field.
+
 ## Figure and caption handling
 
 - Preserve every figure number exactly as printed: **Figure 1-1**, **Figure 2-3**, etc.
