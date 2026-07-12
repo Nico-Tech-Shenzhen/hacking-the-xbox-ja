@@ -196,6 +196,16 @@ Use **「僕」** (not 「私」) for bunnie's first-person narration throughout
   - Prefer **回避策** over ワークアラウンド.
   - When describing ordinary user or device conditions, prefer **通常の使用条件** over 通常の動作条件 unless the technical context specifically requires the latter.
 
+- **"signaling" in electronics contexts:**  
+  Do not leave シグナリング in Japanese prose. Choose based on sentence context:
+  - 「信号」 — the electrical signal itself. Example: `AGTL+信号に対応したロジックアナライザ`
+  - 「信号方式」 — a category or method of digital signal transmission. Example: `信号方式は大きく二つに分けられる`
+  - 「信号規格」 — a voltage/logic-level convention (AGTL+, SST-2, TTL, 3.3V CMOS). Example: `信号規格（電圧を論理値に対応付ける規格）はAGTL+と呼ばれる`
+  - Never use 「信号標準」 as a literal translation of "signaling standard".
+  - single-ended signaling → 「シングルエンド信号」; differential signaling → 「差動信号」
+  - LVDS: expand on first use as LVDS（低電圧差動信号）. AGTL+ and SST-2: keep source ASCII spelling; AGTL+ uses ASCII `+`, not full-width ＋.
+  - Blind replacement of シグナリング is a valid first pass; review each sentence individually — "signaling" sometimes means the signal itself and sometimes the convention or method.
+
 - **Duplicated heading/title fragments (OCR/extraction artifacts):** Watch for artifacts where a heading, chapter title, or quoted title is duplicated inside itself.
   - Verify suspicious quoted titles against `source/chapter-map.json` or the source extract before changing.
   - Remove accidental duplicate fragments when fixing text. Do not invent new titles.
@@ -414,7 +424,7 @@ Before marking any section complete, verify all 22 items:
 6. Unclear pronouns and demonstratives are resolved to explicit nouns.
 7. Technical terms follow `glossary.tsv`; apply the reader-first policy for first mention.
 8. English terms are added only when useful, not for every technical noun.
-9. No unnecessary katakana jargon (パラサイティクス, ブラックアート, etc.).
+9. No unnecessary katakana jargon (パラサイティクス, ブラックアート, シグナリング, etc.); see **signaling** rule under *Wording and phrasing*.
 10. No stiff phrases such as 「〜と考えることができる」 when direct assertion is better.
 11. No repeated adjacent subjects or locations in consecutive sentences.
 12. Circuit behavior is explained by function or cause/effect, not abstract noun stacks.

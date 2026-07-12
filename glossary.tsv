@@ -131,3 +131,12 @@ Microsoft	Microsoft	Keep English
 Intel	Intel	Keep English
 AMD	AMD	Keep English
 NVIDIA	NVIDIA	Keep official uppercase spelling
+signaling	信号／信号方式	Context-dependent: use 信号 for the electrical signal itself; 信号方式 for signaling categories or methods. Avoid シグナリング in running prose.
+signaling convention	信号規格	For voltage-to-logic-level conventions such as AGTL+, SST-2, TTL, 3.3V CMOS. Avoid シグナリングコンベンション.
+signaling standard	信号方式／標準的な信号方式	Do not use 信号標準. Use 信号方式 or 標準的な信号方式 depending on sentence context.
+single-ended signaling	シングルエンド信号	Avoid シングルエンドシグナリング.
+differential signaling	差動信号	Avoid 差動シグナリング.
+Low-Voltage Differential Signaling	低電圧差動信号	Used in LVDS expansion.
+LVDS	LVDS（低電圧差動信号）	Expand on first use. Avoid LVDS（低電圧差動シグナリング）.
+AGTL+	AGTL+	Keep ASCII plus sign. Do not use full-width ＋.
+SST-2	SST-2	Keep as source spelling.
