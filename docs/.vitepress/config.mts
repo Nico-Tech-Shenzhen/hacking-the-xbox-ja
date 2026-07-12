@@ -79,10 +79,10 @@ gtag('config', 'G-E0N88X4QBG');`,
       {
         text: '情報',
         items: [
-          { text: '翻訳にもCI/CDを（高須正和）', link: '/translation-ci-cd' },
-          { text: 'クレジット・謝辞', link: '/credits' },
-          { text: 'コンテンツライセンス', link: '/license' },
           { text: '翻訳方針', link: 'https://github.com/Nico-Tech-Shenzhen/hacking-the-xbox-ja/blob/main/TRANSLATION_GUIDE.md' },
+          { text: 'コンテンツライセンス', link: '/license' },
+          { text: 'クレジット・謝辞', link: '/credits' },
+          { text: '翻訳にもCI/CDを（高須正和）', link: '/translation-ci-cd' },
         ],
       },
     ],
