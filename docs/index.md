@@ -29,6 +29,12 @@ features:
 
 原著は Aaron Swartz を追悼して [無償公開](https://nostarch.com/xboxfree) されています。本翻訳は原著の Creative Commons ライセンス条件に従って公開する翻訳コントリビューションであり、出版社による公式日本語版ではありません。
 
+
+## この翻訳プロジェクトについて
+
+- [翻訳にもCI/CDを──『Hacking the Xbox』日本語版で試していること（高須正和）](/translation-ci-cd)
+- [翻訳ガイド](https://github.com/Nico-Tech-Shenzhen/hacking-the-xbox-ja/blob/main/TRANSLATION_GUIDE.md)
+
 ## 読む
 
 - [読者のみなさんへ](/ja/dear-reader)
