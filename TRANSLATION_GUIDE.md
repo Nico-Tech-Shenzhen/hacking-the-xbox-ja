@@ -263,7 +263,45 @@ Use **「僕」** (not 「私」) for bunnie's first-person narration throughout
 - **Connector gender (male/female):** Do not use bare `ジェンダー` for connector polarity. On first mention explain as `コネクタのオス・メス形状` or `コネクタの向き（オス・メス）`. After first mention, `オス側` / `メス側` is sufficient.
   - ×「誤ったジェンダーのフットプリント」→ ○「オス・メスが逆のフットプリント」
 
-- **Solder wetting:** First mention: `ぬらす（ウェット）` or `はんだの濡れ性`; subsequent: `ウェット` (adjective) or `濡れ` / `ウェッティング` is acceptable as a verb noun only. Do not repeat bare `ウェッティング` as a standalone noun phrase without Japanese gloss after first mention.
+- **`component` in hardware prose:** Prefer `部品` in ordinary electronics and hardware prose. Use `電子部品` only when the electronics context must be made explicit. Avoid `コンポーネント` unless the source clearly refers to a software component, system-architecture component, or named UI/framework concept.
+  - component side → `部品面`; component lead → `部品のリード`
+  - ×「SMTコンポーネントを基板に取り付ける」→ ○「表面実装部品を基板に取り付ける」
+
+- **`joint` in soldering prose:** Avoid bare `ジョイント` in Japanese electronics prose.
+  - solder joint → `はんだ接合部` / `はんだ付け部` / `はんだ付けした部分` (choose for readability)
+  - cold joint → `はんだ不良`; first mention → `コールドジョイント（はんだ不良）`
+  - mechanical joint (non-solder) → `接合部` / `継ぎ目` / `接続部` as context requires
+
+- **Solder wetting:** Use natural Japanese. Do not use bare `ウェット` or `ウェッティング` as nouns.
+  - wetting (noun/condition) → `はんだの濡れ` / `濡れ性`
+  - good wetting → `はんだがよく回っている` / `濡れがよい`
+  - poor wetting → `はんだの濡れが悪い`; wetted joint → `はんだがよく回った接合部`
+  - First mention: `ぬらす（ウェット）` or `はんだの濡れ性`; subsequent: `濡れ` or `はんだが回る`
+  - Do not translate "wet" mechanically as `ウェット` or `濡れた` when it would imply water contact.
+
+- **Acid flux / plumbing solder:** Use standard process Japanese and clear safety wording.
+  - plumbing solder → `配管用はんだ`; plumbing flux → `配管用フラックス`; acid flux → `酸性フラックス`
+  - corrosion (acid-flux damage to board/parts) → `腐食`; corrode → `腐食させる`. Do not use `侵食` here.
+  - Use `基板や部品` (not `基板とコンポーネント`); delayed failure → `時間がたってから故障を引き起こす` (not `時間とともに`).
+
+  **Bad:**
+  ```
+  基板とコンポーネントを侵食し、時間とともに故障を引き起こす。配管はんだ付け用のはんだとフラックスを使ってしまった初心者が酸性フラックスに悩まされることが多い。
+  ```
+  **Good:**
+  ```
+  基板や部品を腐食させ、時間がたってから故障を引き起こす。初心者がよくやる失敗は、配管用のはんだやフラックスを電子工作に流用してしまうことだ。これをやると、あとで酸性フラックスによる腐食に悩まされる。
+  ```
+
+- **Kapton tape:** Use `カプトンテープ`; for DuPont's material name use `DuPontのKapton`.
+  - Kapton is for masking/protecting nearby areas from heat or molten solder — do not imply direct iron-tip contact is safe.
+  - Prefer `はんだを付けたくない場所` or `溶けたはんだが触れそうな場所` over bare `はんだをかけたくない`.
+  - Kapton is expensive: note it should be reserved for heat/solder-exposed areas, not ordinary fastening.
+
+  **Preferred:**
+  ```
+  カプトンテープは、作業台のそばに置いておくと重宝する。DuPontのKaptonは500°F（約260℃）程度まで耐えられるので、溶けたはんだが触れそうな場所を一時的に保護するのに使える。はんだを付けたくない周囲の部品やパッドをマスクする用途に便利だ。ただし高価なので、普通の固定や仮止めには使わず、熱や溶けたはんだにさらされる場所にだけ使うのがよい。
+  ```
 
 - **Low-volume manufacturing:** Do not use `低ボリューム` or `低ボリューム生産`. Use `小ロット` or `少量生産`. Likewise `クイックターン・低ボリューム` → `クイックターン少量生産` or `少量プロトタイプ`.
 
@@ -498,3 +536,4 @@ Before marking any section complete, verify all 26 items:
 24. 実装 not used for physical component mounting; 取り付ける / 載せる used for physical attachment to a board.
 25. `フィデューシャリ` not used for PCB alignment marks; `フィデューシャルマーク（基準マーク）` used instead. ("Fiduciary" is a legal/financial term, not a PCB term.)
 26. No bare `シグナル` for named electrical signals in prose; `信号` used consistently (`Power OK信号`, `Power On信号`).
+27. Soldering/hardware prose: no bare `コンポーネント` → use `部品`; no bare `ジョイント` → use `はんだ接合部`/`はんだ付け部`; no bare `ウェット`/`ウェッティング` as nouns → use `はんだの濡れ`/`濡れ性`/`はんだが回る`; acid-flux damage → `腐食`, not `侵食`.

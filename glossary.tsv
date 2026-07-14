@@ -157,7 +157,7 @@ bus snooping / bus eavesdropping	バスを盗み聞きする	Passive capture of 
 in-band	インバンド	Control or data carried within the main data channel (opposite of sideband). Keep katakana.
 sideband	サイドバンド	Auxiliary control signals outside the main data path (e.g., address, chip select, interrupt lines in non-HyperTransport buses). Keep katakana.
 nForce	nForce	NVIDIA nForce chipset product name. Keep original lowercase-n spelling as a product name. The manufacturer is NVIDIA (not nVidia).
-solder wetting / wetting	はんだの濡れ性 / ウェット（濡れる）	First mention: 「ぬらす（ウェット）」; subsequent: ウェット or 濡れ. Avoid bare ウェッティング as a repeated standalone noun; use as verb-noun only.
+solder wetting / wetting	はんだの濡れ／濡れ性	Avoid ウェット or ウェッティング as standalone nouns. First mention: ぬらす（ウェット）. Subsequent: 濡れ, 濡れ性, or はんだが回る. Good wetting: はんだがよく回っている. Poor wetting: はんだの濡れが悪い.
 tweezer iron / tweezer-type soldering iron	ピンセット型はんだごて	For tong-style or tweezer soldering irons. Avoid トング式はんだごて.
 popcorning (PCB defect)	ポップコーン現象	Moisture-induced explosive chip failure during reflow. Use ポップコーン現象. ポップコーニング is acceptable but less standard in Japanese.
 BGA reballing	BGAリボール	Re-attaching BGA solder balls. Use BGAリボール. Avoid 再ボール付け.
@@ -167,3 +167,21 @@ signal integrity	信号インテグリティ	Consistent term for PCB/signal qual
 connector gender (male/female)	コネクタのオス・メス形状	For connector polarity. Explain on first mention as コネクタのオス・メス形状 or コネクタの向き（オス・メス）. Avoid bare ジェンダー for this meaning.
 factory check / manufacturing review	工場検査 / 製造前検査	For PCB manufacturing DRC-style checks by the fab. Avoid ファクトリーチェック.
 jeweler's loupe / proofing loupe	高倍率ルーペ / 宝石鑑定用ルーペ	Generic high-magnification portable magnifier. Use 高倍率ルーペ. Avoid ジュエラーズルーペ and プルーフィングルーペ as unexplained katakana.
+component	部品	Prefer 部品 in ordinary electronics and hardware prose. Use 電子部品 when electronics context must be explicit. Avoid コンポーネント unless software/system-architecture context requires it.
+electronic component	電子部品	Use when electronics context must be made explicit; otherwise 部品 is sufficient.
+component side	部品面	PCB side where components are mounted. Opposite: solder side（はんだ面）.
+component lead	部品のリード	Lead wires or pins of through-hole parts. Use リード for the physical leads; ピン for IC or connector pins.
+joint	接合部／接続部	Avoid bare ジョイント in hardware prose. 接合部 for physical joints; 接続部 for electrical connections.
+solder joint	はんだ接合部／はんだ付け部	Prefer はんだ付けした部分 in conversational prose. Avoid bare ジョイント.
+cold joint	はんだ不良／コールドジョイント	Prefer はんだ不良 in explanatory prose; first mention may use コールドジョイント（はんだ不良）.
+wet (solder)	濡れる／はんだが回る	Do not translate mechanically as ウェット or 濡れた (implies water). Use はんだが回る or 濡れる for solder flowing and bonding.
+poor wetting	はんだの濡れが悪い	Use when solder does not spread or bond properly to the metal surface.
+good wetting	はんだがよく回っている／濡れがよい	Use in practical soldering explanations for solder that flows and bonds cleanly.
+plumbing solder	配管用はんだ	Not suitable for electronics. Avoid 配管はんだ付け用のはんだ (verbose literal).
+plumbing flux	配管用フラックス	Often acid flux; corrodes PCBs and components. Avoid 配管はんだ付け用のフラックス.
+acid flux	酸性フラックス	Corrodes boards and parts; must not be used in electronics soldering. See corrosion entry.
+corrosion	腐食	Use 腐食 for acid-flux damage to boards and parts. Do not use 侵食 in this context.
+corrode	腐食させる	For acid flux damaging boards or parts. Avoid 侵食する here.
+Kapton tape	カプトンテープ	DuPont heat-resistant polyimide tape. Use for masking/protecting nearby areas from heat or molten solder. Do not imply direct iron-tip contact is safe.
+Kapton	DuPontのKapton	Use official spelling when referring to the DuPont material by name. Generic term: カプトンテープ.
+mask (soldering protection)	マスクする／覆う	For protecting pads/areas from solder: はんだを付けたくない場所をマスクする. Avoid bare はんだをかけたくない.
