@@ -303,6 +303,39 @@ Use **「僕」** (not 「私」) for bunnie's first-person narration throughout
   カプトンテープは、作業台のそばに置いておくと重宝する。DuPontのKaptonは500°F（約260℃）程度まで耐えられるので、溶けたはんだが触れそうな場所を一時的に保護するのに使える。はんだを付けたくない周囲の部品やパッドをマスクする用途に便利だ。ただし高価なので、普通の固定や仮止めには使わず、熱や溶けたはんだにさらされる場所にだけ使うのがよい。
   ```
 
+- **Solder blob / pre-applied solder (component placement):** When a small amount of solder is deliberately placed on one pad/land before aligning a component, use `はんだを盛る` (verb) and `盛ったはんだ` (noun). Do not transliterate as `はんだブロブ`. Do not use `はんだボール` unless the source is specifically about detached spherical solder balls or BGA balls.
+  - For pre-tinning context (pre-applying solder to a surface before assembly): `予備はんだ` is acceptable only when the source clearly means pre-tinning.
+  - For the reader-facing description of the component-placement operation, `はんだを盛る` / `盛ったはんだ` is more natural and directly describes the action.
+  - The PR #2 reviewer suggested `予備ハンダ`; the x.com refinement clarifies: for the specific "put a solder blob on one pad before placing a component" operation, prefer `はんだを盛る` / `盛ったはんだ`.
+
+  **Bad:**
+  ```
+  コンポーネントのランドの一つにはんだのブロブを置き
+  最初のはんだブロブがコンポーネントのリードに流れ込むまで
+  ```
+  **Good:**
+  ```
+  部品のランドの一つにはんだを盛り
+  最初に盛ったはんだが部品のリードに流れるまで
+  ```
+
+- **Flux-cored solder / rosin-core solder:**
+  - flux-cored solder → `フラックス入りはんだ` (general/modern term)
+  - rosin-core solder → `ヤニ入りはんだ` or `ロジン入りはんだ`; `ヤニ入りはんだ` is familiar in older Japanese electronics prose
+  - On first mention in a context that benefits from explanation: `フラックス入りはんだ（昔ながらのヤニ入りはんだ）` — use only if the context warrants it
+  - Avoid `フラックスコア内のフラックス` (circular/awkward phrasing). Rephrase: `フラックス入りはんだに含まれるフラックスだけでは` or simply `フラックスが足りないことがある`
+  - Keep project spelling `はんだ`, not `半田`, unless quoting source text
+
+- **Oxidized solder / poor wetting — imohanda and tempura solder:** When solder fails to wet the pad and balls up or oxidizes, describe the condition directly rather than defaulting to `はんだボール`:
+  - `はんだが酸化して丸い塊になる` / `はんだが基板になじまず丸まってしまう` / `はんだの濡れが悪く接触が不安定になる`
+  - If the Japanese electronics context makes it helpful, add: `（イモはんだに近い状態）` or `（天ぷらはんだのような状態）` — only when the source context is about a defective joint or poor wetting
+  - Do **not** apply `イモはんだ` or `天ぷらはんだ` to the deliberate "solder blob on a pad" operation
+  - Do **not** use `はんだボール` for a deliberate solder application on a pad
+
+- **Circuit board kanji:** Use `基板` (板 = board/plate). Do **not** use `基盤` (盤 = disc/foundation — a different word). This is a common kanji error in Japanese.
+  - PCB / circuit board → `基板`; printed circuit board → `プリント基板`
+  - ×「基盤のパターン」→ ○「基板のパターン」
+
 - **Low-volume manufacturing:** Do not use `低ボリューム` or `低ボリューム生産`. Use `小ロット` or `少量生産`. Likewise `クイックターン・低ボリューム` → `クイックターン少量生産` or `少量プロトタイプ`.
 
 - **Bit/byte capacity notation:** Preserve bit/byte units accurately. Do not confuse Mbit with MB.
@@ -536,4 +569,5 @@ Before marking any section complete, verify all 26 items:
 24. 実装 not used for physical component mounting; 取り付ける / 載せる used for physical attachment to a board.
 25. `フィデューシャリ` not used for PCB alignment marks; `フィデューシャルマーク（基準マーク）` used instead. ("Fiduciary" is a legal/financial term, not a PCB term.)
 26. No bare `シグナル` for named electrical signals in prose; `信号` used consistently (`Power OK信号`, `Power On信号`).
-27. Soldering/hardware prose: no bare `コンポーネント` → use `部品`; no bare `ジョイント` → use `はんだ接合部`/`はんだ付け部`; no bare `ウェット`/`ウェッティング` as nouns → use `はんだの濡れ`/`濡れ性`/`はんだが回る`; acid-flux damage → `腐食`, not `侵食`.
+27. Soldering/hardware prose: no bare `コンポーネント` → use `部品`; no bare `ジョイント` → use `はんだ接合部`/`はんだ付け部`; no bare `ウェット`/`ウェッティング` as nouns → use `はんだの濡れ`/`濡れ性`/`はんだが回る`; acid-flux damage → `腐食`, not `侵食`; solder blob on pad → `はんだを盛る`/`盛ったはんだ`, not `はんだブロブ`; `はんだボール` only for actual detached solder balls or BGA balls; flux-cored solder → `フラックス入りはんだ`; circuit board → `基板` not `基盤`.
+28. Solder blob context check: if source says "put a blob/dot of solder on a pad before placing the component", the translation must use `はんだを盛る`/`盛ったはんだ` — not `はんだブロブ`, not `予備ハンダ` (unless source is specifically about pre-tinning), not `はんだボール`.
