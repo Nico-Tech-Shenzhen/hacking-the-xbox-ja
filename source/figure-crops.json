@@ -1014,6 +1014,120 @@
       "output_image": "docs/public/images/figures/ch05-fig5-8.png",
       "target_markdown": "docs/ja/ch05.md",
       "notes": "Photo of 1U slimline ATX power supply connected to Xbox via modified cable, page 104 render."
+    },
+    {
+      "id": "ch07-fig7-1",
+      "figure_label": "Figure 7-1",
+      "source_render": "docs/public/images/page-128-render.png",
+      "source_size": [
+        864,
+        1296
+      ],
+      "box_type": "pixel",
+      "box": [
+        102,
+        86,
+        716,
+        468
+      ],
+      "output_image": "docs/public/images/figures/ch07-fig7-1.png",
+      "target_markdown": "docs/ja/ch07.md",
+      "notes": "Line-art diagram, top half of page 128 render: 'TEA in a cipher application' and 'TEA used as a hash function' sub-diagrams, both covered by the printed 'Figure 7-1' caption. Split from Figure 7-2 below (which has its own independent caption on the same source page). Bounds derived by pixel darkness thresholding (threshold 200); excludes the printed English caption line, which sits on its own paragraph below the diagram."
+    },
+    {
+      "id": "ch07-fig7-2",
+      "figure_label": "Figure 7-2",
+      "source_render": "docs/public/images/page-128-render.png",
+      "source_size": [
+        864,
+        1296
+      ],
+      "box_type": "pixel",
+      "box": [
+        126,
+        541,
+        701,
+        1120
+      ],
+      "output_image": "docs/public/images/figures/ch07-fig7-2.png",
+      "target_markdown": "docs/ja/ch07.md",
+      "notes": "Line-art diagram, bottom half of page 128 render below the horizontal rule: inner structure of one TEA round. Split from Figure 7-1 above; independently captioned figure on the same source page. Bounds derived by pixel darkness thresholding; excludes the printed English caption paragraph below the diagram."
+    },
+    {
+      "id": "ch07-fig7-3",
+      "figure_label": "Figure 7-3",
+      "source_render": "docs/public/images/page-131-render.png",
+      "source_size": [
+        864,
+        1296
+      ],
+      "box_type": "pixel",
+      "box": [
+        135,
+        917,
+        769,
+        1114
+      ],
+      "output_image": "docs/public/images/figures/ch07-fig7-3.png",
+      "target_markdown": "docs/ja/ch07.md",
+      "notes": "Line-art diagram, bottom of page 131 render: RSA-with-session-key sender/receiver flow. Sparse line art with cylinder/box/cloud shapes; bounds derived by pixel darkness thresholding, taking care to exclude the last line of the preceding body-text paragraph immediately above the diagram. Excludes the printed English caption line below the diagram."
+    },
+    {
+      "id": "ch07-fig7-4",
+      "figure_label": "Figure 7-4",
+      "source_render": "docs/public/images/page-132-render.png",
+      "source_size": [
+        864,
+        1296
+      ],
+      "box_type": "pixel",
+      "box": [
+        94,
+        91,
+        713,
+        325
+      ],
+      "output_image": "docs/public/images/figures/ch07-fig7-4.png",
+      "target_markdown": "docs/ja/ch07.md",
+      "notes": "Line-art diagram, top of page 132 render: RSA digital-signature sender/receiver flow. v1 box (bottom=296) clipped the 'if equal, message / is likely to be authentic / and unaltered' callout text next to the 'compare' oval, which is part of the diagram; extended bottom to 325 to include it in full while still excluding the printed English caption paragraph that begins at row ~343. Bounds derived by pixel darkness thresholding, verified visually after the fix."
+    },
+    {
+      "id": "ch09-fig9-1",
+      "figure_label": "Figure 9-1",
+      "source_render": "docs/public/images/page-157-render.png",
+      "source_size": [
+        864,
+        1296
+      ],
+      "box_type": "pixel",
+      "box": [
+        151,
+        848,
+        769,
+        1172
+      ],
+      "output_image": "docs/public/images/figures/ch09-fig9-1.png",
+      "target_markdown": "docs/ja/ch09.md",
+      "notes": "Line-art diagram, bottom third of page 157 render: FLASH ROM jam-table block diagram with 'FLASH ROM contents (simplified)' heading and opcode table. Bounds derived by pixel darkness thresholding, including the diagram's own heading text; excludes the printed English caption line below the diagram."
+    },
+    {
+      "id": "ch09-fig9-2",
+      "figure_label": "Figure 9-2",
+      "source_render": "docs/public/images/page-160-render.png",
+      "source_size": [
+        864,
+        1296
+      ],
+      "box_type": "pixel",
+      "box": [
+        95,
+        620,
+        721,
+        1091
+      ],
+      "output_image": "docs/public/images/figures/ch09-fig9-2.png",
+      "target_markdown": "docs/ja/ch09.md",
+      "notes": "Line-art diagram, bottom two-thirds of page 160 render: Xbox v1.1 security block diagram with 'MCPX Southbridge Chip' / 'FLASH ROM' column headings and numbered hash-check steps. v1 (top=551) and v2 (top=556) boxes both bled into the tail of the preceding body-text paragraph ('...from the strength of public-key ciphers.', which actually ends at row 598, not ~554 as first misread from a stale row scan); corrected top to 620 (heading ink begins row 626) after re-verifying row boundaries with a visual grid overlay. Bounds derived by pixel darkness thresholding, including the diagram's own heading text; excludes the printed English caption (2 lines) and the footnote text below it."
     }
   ]
 }
