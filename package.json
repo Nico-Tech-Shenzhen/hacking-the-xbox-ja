@@ -9,7 +9,11 @@
     "docs:preview": "vitepress preview docs",
     "extract:text": "python3 scripts/extract_text.py",
     "extract:images": "python3 scripts/extract_images.py",
-    "validate:links": "python3 scripts/validate_links.py"
+    "validate:links": "python3 scripts/validate_links.py",
+    "book:prepare": "python scripts/build_book.py --prepare",
+    "book:epub": "python scripts/build_book.py --epub",
+    "book:pdf": "python scripts/build_book.py --pdf",
+    "book:all": "python scripts/build_book.py --all"
   },
   "devDependencies": {
     "vitepress": "^1.3.4"

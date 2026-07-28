@@ -9,3 +9,7 @@ source/HackingTheXbox_Free.pdf
 # Extracted text and images (reproducible from PDF; large)
 source/extract/pages/
 source/extract/images/
+
+# Book build intermediates (reproducible via scripts/build_book.py)
+dist/book/
+.tmp/book/
