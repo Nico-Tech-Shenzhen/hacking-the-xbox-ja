@@ -30,14 +30,47 @@ jobs:
           cache: npm
           cache-dependency-path: package-lock.json
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
       - name: Install dependencies
         run: npm ci
+
+      - name: Install Pandoc and Japanese (Noto CJK) fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc fonts-noto-cjk
+
+      - name: Install Typst
+        run: |
+          set -euo pipefail
+          TYPST_URL=$(curl -fsSL https://api.github.com/repos/typst/typst/releases/latest \
+            | grep -o '"browser_download_url": *"[^"]*x86_64-unknown-linux-musl\.tar\.xz"' \
+            | head -n1 | cut -d '"' -f4)
+          if [ -z "$TYPST_URL" ]; then
+            echo "Could not resolve latest Typst release download URL" >&2
+            exit 1
+          fi
+          curl -fsSL "$TYPST_URL" -o /tmp/typst.tar.xz
+          tar -xf /tmp/typst.tar.xz -C /tmp
+          sudo install -m 755 /tmp/typst-x86_64-unknown-linux-musl/typst /usr/local/bin/typst
+          typst --version
 
       - name: Configure Pages
         uses: actions/configure-pages@v5.0.0
 
       - name: Validate links
         run: python scripts/validate_links.py
+
+      - name: Build EPUB/PDF downloads
+        run: npm run book:all
+
+      - name: Verify EPUB/PDF were generated
+        run: |
+          test -f docs/public/downloads/hacking-the-xbox-ja.epub
+          test -f docs/public/downloads/hacking-the-xbox-ja.pdf
 
       - name: Build VitePress site
         run: npm run docs:build
