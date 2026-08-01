@@ -29,7 +29,10 @@ Pipeline:
      manuscript.md resolve correctly; outputs are written back out to
      docs/public/downloads/ via a relative "../../docs/public/downloads/..."
      path. PDF engine preference order: typst > xelatex > (HTML+Playwright/
-     Chromium fallback, printed to PDF).
+     Chromium fallback, printed to PDF). Every Pandoc invocation reads with
+     `--from markdown-citations` (citations extension disabled) so plain
+     text handles like "@tks" in the credits section are never parsed as
+     Pandoc citation keys -- see CITELESS_MARKDOWN below for why.
 
 Usage:
     python3 scripts/build_book.py --prepare   # build manuscript only
@@ -70,6 +73,17 @@ EPUB_OUT_REL = Path("..") / ".." / "docs" / "public" / "downloads" / "hacking-th
 PDF_OUT_REL = Path("..") / ".." / "docs" / "public" / "downloads" / "hacking-the-xbox-ja.pdf"
 
 BOOK_TITLE = "Hacking the Xbox 日本語訳"
+
+# The manuscript does not use Pandoc citations (no [@key] bibliography
+# syntax anywhere in the book). Disable the "citations" Markdown extension
+# on input so that plain-text social handles like "@tks" in the credits
+# section are passed through as literal text instead of being parsed as
+# citation keys. Without this, Pandoc rewrites "@tks" into a citation node,
+# which the Typst PDF engine then renders as `#cite("tks")` -- a bare
+# identifier Typst can't resolve (no bibliography exists), and Typst aborts
+# with "expected label, found string". Applied to every Pandoc invocation
+# used for book generation (EPUB, Typst PDF, xelatex PDF, HTML/Playwright).
+CITELESS_MARKDOWN = "markdown-citations"
 
 # Explicit book order (mirrors docs/.vitepress/config.mts sidebar order).
 BOOK_ORDER = [
@@ -223,6 +237,7 @@ def build_epub() -> bool:
     cmd = [
         "pandoc", "manuscript.md",
         "-o", str(EPUB_OUT_REL.as_posix()),
+        "--from", CITELESS_MARKDOWN,
         "--toc", "--toc-depth=2",
         "--metadata", "lang=ja-JP",
         "--metadata", f"title={BOOK_TITLE}",
@@ -246,6 +261,7 @@ def build_pdf() -> bool:
         cmd = [
             "pandoc", "manuscript.md",
             "-o", str(PDF_OUT_REL.as_posix()),
+            "--from", CITELESS_MARKDOWN,
             "--toc", "--toc-depth=2",
             "--pdf-engine=typst",
             "-V", "mainfont=Noto Serif CJK JP",
@@ -273,6 +289,7 @@ def build_pdf() -> bool:
         cmd = [
             "pandoc", "manuscript.md",
             "-o", str(PDF_OUT_REL.as_posix()),
+            "--from", CITELESS_MARKDOWN,
             "--toc", "--toc-depth=2",
             "--pdf-engine=xelatex",
             "-V", "mainfont=Noto Serif CJK JP",
@@ -311,6 +328,7 @@ def build_pdf_via_playwright() -> bool:
     cmd = [
         "pandoc", "manuscript.md",
         "-o", "manuscript.html",
+        "--from", CITELESS_MARKDOWN,
         "--toc", "--toc-depth=2",
         "--standalone",
         "--metadata", "lang=ja-JP",
