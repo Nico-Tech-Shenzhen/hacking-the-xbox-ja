@@ -91,9 +91,9 @@ gtag('config', 'G-E0N88X4QBG');`,
 
     footer: {
       message:
-        'ニコ技深圳コミュニティ / 高須正和（@tks）による日本語訳コントリビューションです。著者 bunnie からも歓迎のコメントをいただいています。原著は Andrew \'bunnie\' Huang および No Starch Press に帰属します。',
+        'Hacking the Xbox 日本語訳 — ニコ技深圳コミュニティ / 高須正和（@tks）',
       copyright:
-        '翻訳テキスト © 翻訳者 | 原著 © 2003 Xenatera LLC (著者: Andrew \'bunnie\' Huang) | CC BY-NC-SA 1.0',
+        '原著: Andrew "bunnie" Huang (Xenatera LLC / No Starch Press, 2003) | 翻訳・レビュー: ニコ技深圳コミュニティ / 高須正和 | CC BY-NC-SA 1.0',
     },
 
     editLink: {

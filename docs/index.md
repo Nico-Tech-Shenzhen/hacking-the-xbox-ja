@@ -11,6 +11,12 @@ hero:
     - theme: alt
       text: クレジット
       link: /credits
+    - theme: alt
+      text: PDFダウンロード
+      link: /downloads/hacking-the-xbox-ja.pdf
+    - theme: alt
+      text: EPUBダウンロード
+      link: /downloads/hacking-the-xbox-ja.epub
 features:
   - title: 日本語訳プロジェクト
     details: >-
@@ -22,6 +28,8 @@ features:
     details: >-
       誤訳、技術的な不正確さ、図版の抜け、日本語として読みにくい箇所は GitHub Issue で知らせてください。
 ---
+
+<small>最終更新：2026年8月1日</small>
 
 ## このサイトについて
 
@@ -69,8 +77,6 @@ features:
 ---
 
 <small>
-*原著*: *Hacking the Xbox: An Introduction to Reverse Engineering* © 2003 Xenatera LLC<br>
-*著者*: Andrew "bunnie" Huang | *出版*: No Starch Press<br>
-*日本語訳・レビュー*: ニコ技深圳コミュニティ / 高須正和（@tks） — [https://takasumasakazu.net](https://takasumasakazu.net) — CC BY-NC-SA 1.0<br>
-*注記*: 本翻訳は、原著の Creative Commons ライセンス条件に従って公開する翻訳コントリビューションであり、著者 bunnie からも歓迎のコメントをいただいています。出版社による公式日本語版ではありません。
+Hacking the Xbox ニコ技深圳コミュニティ / 高須正和による日本語訳 — 原著: Andrew "bunnie" Huang (Xenatera LLC / No Starch Press, 2003)、翻訳・レビュー: ニコ技深圳コミュニティ / 高須正和（@tks） — [https://takasumasakazu.net](https://takasumasakazu.net)、ライセンス: CC BY-NC-SA 1.0<br>
+本翻訳は原著の Creative Commons ライセンス条件に従って公開する翻訳コントリビューションです。出版社による公式日本語版ではありません。
 </small>
