@@ -30,10 +30,9 @@
 
 本サイトのコンテンツを再利用・二次配布する場合は：
 
-1. 著作権者 Xenatera LLC・著者 Andrew "bunnie" Huang・出版社 No Starch Press を明記してください。
+1. 著作権者 Xenatera LLC・著者 Andrew "bunnie" Huang・出版社 No Starch Press のクレジットを表示してください。
 2. 非営利目的に限定してください。
 3. 同一ライセンス (CC BY-NC-SA) を継承してください。
-4. 本翻訳が**非公式（unofficial）**であることを明記してください。
 
 ## 免責
 
