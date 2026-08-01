@@ -13,10 +13,10 @@ hero:
       link: /credits
     - theme: alt
       text: PDFダウンロード
-      link: /downloads/hacking-the-xbox-ja.pdf
+      link: /hacking-the-xbox-ja/downloads/hacking-the-xbox-ja.pdf
     - theme: alt
       text: EPUBダウンロード
-      link: /downloads/hacking-the-xbox-ja.epub
+      link: /hacking-the-xbox-ja/downloads/hacking-the-xbox-ja.epub
 features:
   - title: 日本語訳プロジェクト
     details: >-
