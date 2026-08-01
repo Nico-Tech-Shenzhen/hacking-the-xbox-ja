@@ -10,8 +10,14 @@ Pipeline:
   2. Strip YAML frontmatter from each file.
   3. Strip the repeated per-page "<small>...</small>" credit footer from
      each file (it is re-added once, at the very end of the manuscript).
-  4. Rewrite "/images/..." absolute site paths to real filesystem paths so
-     Pandoc can resolve them regardless of the current working directory.
+  4. Rewrite "/images/..." absolute site paths to portable *relative* paths
+     ("images/...") and copy every referenced image from
+     docs/public/images/... into dist/book/images/... (preserving
+     subdirectories), so Pandoc/Typst can resolve them without ever seeing
+     an absolute filesystem path. This avoids the duplicated-path bug where
+     an absolute path baked into the manuscript gets re-joined with a CWD
+     by Typst (e.g. on GitHub Actions runners), producing nonsense paths
+     like ".../home/runner/work/.../docs/public/images/foo.png".
   5. Concatenate everything (in book order) into a single manuscript at
      dist/book/manuscript.md.
   6. Append a single combined license/credits section at the end, sourced
@@ -19,8 +25,11 @@ Pipeline:
   7. Optionally invoke Pandoc to produce:
        - docs/public/downloads/hacking-the-xbox-ja.epub
        - docs/public/downloads/hacking-the-xbox-ja.pdf
-     PDF engine preference order: typst > xelatex > (HTML+Playwright/Chromium
-     fallback, printed to PDF).
+     Pandoc is run with cwd=dist/book so the relative "images/..." paths in
+     manuscript.md resolve correctly; outputs are written back out to
+     docs/public/downloads/ via a relative "../../docs/public/downloads/..."
+     path. PDF engine preference order: typst > xelatex > (HTML+Playwright/
+     Chromium fallback, printed to PDF).
 
 Usage:
     python3 scripts/build_book.py --prepare   # build manuscript only
@@ -47,11 +56,18 @@ JA_DIR = DOCS_DIR / "ja"
 PUBLIC_DIR = DOCS_DIR / "public"
 DOWNLOADS_DIR = PUBLIC_DIR / "downloads"
 BUILD_DIR = REPO_ROOT / "dist" / "book"
+BUILD_IMAGES_DIR = BUILD_DIR / "images"
 MANUSCRIPT_PATH = BUILD_DIR / "manuscript.md"
 BOOK_CSS = REPO_ROOT / "scripts" / "book.css"
+SOURCE_IMAGES_DIR = PUBLIC_DIR / "images"
 
 EPUB_OUT = DOWNLOADS_DIR / "hacking-the-xbox-ja.epub"
 PDF_OUT = DOWNLOADS_DIR / "hacking-the-xbox-ja.pdf"
+
+# Relative path from BUILD_DIR (pandoc's cwd) back to DOWNLOADS_DIR, used so
+# pandoc's -o argument never contains an absolute path either.
+EPUB_OUT_REL = Path("..") / ".." / "docs" / "public" / "downloads" / "hacking-the-xbox-ja.epub"
+PDF_OUT_REL = Path("..") / ".." / "docs" / "public" / "downloads" / "hacking-the-xbox-ja.pdf"
 
 BOOK_TITLE = "Hacking the Xbox 日本語訳"
 
@@ -86,7 +102,7 @@ FOOTER_RE = re.compile(
     r"\n+(?:---\n+)?<small>.*?</small>\s*\Z", re.DOTALL
 )
 
-IMG_ABS_RE = re.compile(r"(!\[[^\]]*\]\()/images/")
+IMG_ABS_RE = re.compile(r'(!\[[^\]]*\]\()/images/([^)\s]+)((?:\s+"[^"]*")?\))')
 
 
 def strip_frontmatter(text: str) -> str:
@@ -98,15 +114,40 @@ def strip_footer(text: str) -> str:
     return FOOTER_RE.sub("", text)
 
 
-def rewrite_image_paths(text: str) -> str:
-    """Rewrite `/images/...` (VitePress public-dir absolute paths) to real
-    filesystem paths under docs/public/images/ so Pandoc can resolve them
-    from any working directory."""
-    images_abs = (PUBLIC_DIR / "images").resolve()
-    # Use forward slashes even on Windows; Pandoc accepts both, and forward
-    # slashes avoid accidental backslash-escaping issues in Markdown.
-    images_abs_str = images_abs.as_posix()
-    return IMG_ABS_RE.sub(lambda m: f"{m.group(1)}{images_abs_str}/", text)
+def rewrite_image_paths(text: str, source_file: Path) -> str:
+    """Rewrite `/images/...` (VitePress public-dir absolute site paths) to
+    portable *relative* paths ("images/...") and copy the referenced image
+    from docs/public/images/... into dist/book/images/... (preserving any
+    subdirectory structure, e.g. images/figures/ch01-fig1-1.png).
+
+    Never emits an absolute filesystem path into the manuscript -- that was
+    the root cause of the Pandoc+Typst "duplicated path" failure on CI,
+    where an absolute path baked into the manuscript got re-joined with
+    Typst's own working directory.
+    """
+
+    def replace(m: re.Match) -> str:
+        prefix, rel_path, suffix = m.group(1), m.group(2), m.group(3)
+        src = (SOURCE_IMAGES_DIR / rel_path).resolve()
+        if not src.is_file():
+            raise FileNotFoundError(
+                "[build_book] Missing image referenced by the manuscript.\n"
+                f"  Source markdown file : {source_file}\n"
+                f"  Original image path  : /images/{rel_path}\n"
+                f"  Expected source path : {src}\n"
+                "  Fix: extract/add the missing image under docs/public/images/, "
+                "or correct the reference in the source Markdown file."
+            )
+        dest = (BUILD_IMAGES_DIR / rel_path).resolve()
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dest)
+        # Always emit forward slashes -- Pandoc/Typst accept them on every
+        # platform, and it keeps the manuscript free of backslashes that
+        # Markdown could misinterpret as escapes.
+        rel_ref = f"images/{rel_path}".replace("\\", "/")
+        return f"{prefix}{rel_ref}{suffix}"
+
+    return IMG_ABS_RE.sub(replace, text)
 
 
 def load_section(slug: str) -> str:
@@ -116,7 +157,7 @@ def load_section(slug: str) -> str:
     text = path.read_text(encoding="utf-8")
     text = strip_frontmatter(text)
     text = strip_footer(text)
-    text = rewrite_image_paths(text)
+    text = rewrite_image_paths(text, source_file=path)
     return text.strip() + "\n"
 
 
@@ -131,13 +172,18 @@ def load_credits_section() -> str:
             continue
         text = path.read_text(encoding="utf-8")
         text = strip_frontmatter(text)
-        text = rewrite_image_paths(text)
+        text = rewrite_image_paths(text, source_file=path)
         parts.append(text.strip() + "\n")
     return "\n\n---\n\n".join(parts)
 
 
 def build_manuscript() -> Path:
     BUILD_DIR.mkdir(parents=True, exist_ok=True)
+    # Start each build from a clean images/ dir so stale/renamed images from
+    # a previous run never linger and get bundled by mistake.
+    if BUILD_IMAGES_DIR.exists():
+        shutil.rmtree(BUILD_IMAGES_DIR)
+    BUILD_IMAGES_DIR.mkdir(parents=True, exist_ok=True)
 
     sections = [load_section(slug) for slug in BOOK_ORDER]
 
@@ -157,9 +203,9 @@ def which(cmd: str) -> str | None:
     return shutil.which(cmd)
 
 
-def run(cmd: list[str]) -> None:
-    print(f"[build_book] $ {' '.join(cmd)}")
-    subprocess.run(cmd, check=True, cwd=REPO_ROOT)
+def run(cmd: list[str], cwd: Path = REPO_ROOT) -> None:
+    print(f"[build_book] $ {' '.join(cmd)}  (cwd={cwd})")
+    subprocess.run(cmd, check=True, cwd=cwd)
 
 
 def build_epub() -> bool:
@@ -169,16 +215,21 @@ def build_epub() -> bool:
         return False
 
     DOWNLOADS_DIR.mkdir(parents=True, exist_ok=True)
+    # Run from BUILD_DIR (dist/book) with a bare "manuscript.md" input and a
+    # relative "../../docs/public/downloads/..." output, so pandoc/pandoc's
+    # resource-resolution never has to deal with an absolute path and the
+    # manuscript's relative "images/..." references resolve against
+    # dist/book/images/ as expected.
     cmd = [
-        "pandoc", str(MANUSCRIPT_PATH),
-        "-o", str(EPUB_OUT),
+        "pandoc", "manuscript.md",
+        "-o", str(EPUB_OUT_REL.as_posix()),
         "--toc", "--toc-depth=2",
         "--metadata", "lang=ja-JP",
         "--metadata", f"title={BOOK_TITLE}",
     ]
     if BOOK_CSS.exists():
-        cmd += ["--css", str(BOOK_CSS)]
-    run(cmd)
+        cmd += ["--css", str(BOOK_CSS.resolve())]
+    run(cmd, cwd=BUILD_DIR)
     print(f"[build_book] EPUB written: {EPUB_OUT}")
     return True
 
@@ -193,15 +244,15 @@ def build_pdf() -> bool:
 
     if which("typst"):
         cmd = [
-            "pandoc", str(MANUSCRIPT_PATH),
-            "-o", str(PDF_OUT),
+            "pandoc", "manuscript.md",
+            "-o", str(PDF_OUT_REL.as_posix()),
             "--toc", "--toc-depth=2",
             "--pdf-engine=typst",
             "-V", "mainfont=Noto Serif CJK JP",
             "--metadata", "lang=ja-JP",
             "--metadata", f"title={BOOK_TITLE}",
         ]
-        run(cmd)
+        run(cmd, cwd=BUILD_DIR)
         print(f"[build_book] PDF written via Pandoc+Typst: {PDF_OUT}")
         return True
 
@@ -220,8 +271,8 @@ def build_pdf() -> bool:
         # polyglossia's Japanese support installed, CJKmainfont/lang can be
         # re-added for nicer CJK line-breaking.
         cmd = [
-            "pandoc", str(MANUSCRIPT_PATH),
-            "-o", str(PDF_OUT),
+            "pandoc", "manuscript.md",
+            "-o", str(PDF_OUT_REL.as_posix()),
             "--toc", "--toc-depth=2",
             "--pdf-engine=xelatex",
             "-V", "mainfont=Noto Serif CJK JP",
@@ -229,7 +280,7 @@ def build_pdf() -> bool:
             "--metadata", f"title={BOOK_TITLE}",
         ]
         try:
-            run(cmd)
+            run(cmd, cwd=BUILD_DIR)
         except subprocess.CalledProcessError:
             print("[build_book] Pandoc+xelatex failed. Falling back to HTML+Playwright route.")
         else:
@@ -258,16 +309,16 @@ def build_pdf_via_playwright() -> bool:
     DOWNLOADS_DIR.mkdir(parents=True, exist_ok=True)
     html_out = BUILD_DIR / "manuscript.html"
     cmd = [
-        "pandoc", str(MANUSCRIPT_PATH),
-        "-o", str(html_out),
+        "pandoc", "manuscript.md",
+        "-o", "manuscript.html",
         "--toc", "--toc-depth=2",
         "--standalone",
         "--metadata", "lang=ja-JP",
         "--metadata", f"title={BOOK_TITLE}",
     ]
     if BOOK_CSS.exists():
-        cmd += ["--css", str(BOOK_CSS.resolve().as_posix())]
-    run(cmd)
+        cmd += ["--css", str(BOOK_CSS.resolve())]
+    run(cmd, cwd=BUILD_DIR)
 
     with sync_playwright() as p:
         browser = p.chromium.launch()
@@ -292,7 +343,15 @@ def main() -> int:
         parser.print_help()
         return 1
 
-    build_manuscript()
+    try:
+        build_manuscript()
+    except FileNotFoundError as exc:
+        # Missing-image errors are raised with a fully-formed, actionable
+        # message (source file, original /images/... path, expected
+        # filesystem path). Print that message plainly instead of a raw
+        # Python traceback and fail with a distinct exit code.
+        print(str(exc), file=sys.stderr)
+        return 3
 
     epub_ok = pdf_ok = None
     if args.epub or args.all:
