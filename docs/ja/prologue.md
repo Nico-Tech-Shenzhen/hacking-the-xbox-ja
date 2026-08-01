@@ -99,9 +99,9 @@ Xboxセキュリティシステムに関する論文が無事に発表できた�
 
 現実には、DMCAがハードウェアのフェアユースを制限したとしても、政府や市民団体がMicrosoftの行動を独占的行為の観点から注視しているため、このシナリオの実行は難しいかもしれない。しかし、スマートフォン、PDA、セットトップボックスといった新興市場では、ベンダーがこうした低価格戦術によって競合相手に優位に立とうとすることは、あながち非現実的ではないかもしれない。少なくとも、そうした戦術は訴訟期間中——競合相手の市場ポジションに取り返しのつかないダメージを与えるのに十分な長さになりうる——競争を遅らせるために使えることになる。こうした懸念から、多くのXboxハッカーは意識的に、自らのエンジニアリング活動を通じて政治的信念を表明してきた。
 
-<!-- figure: 著者の作業台での写真 — PDF page 28 (page-028-render.png) — 原文 p.10 参照 -->
+<!-- figure: 著者の作業台での写真 — PDF page 28 (page-028-render.png) — 原文 p.10 参照。図は docs/public/images/figures/dear-reader-author-workstation.png にクロップ済み（元のフルページレンダーは docs/public/images/page-028-render.png のまま保持）。 -->
 
-![The author at his workstation.](/images/page-028-render.png)
+![The author at his workstation.](/images/figures/dear-reader-author-workstation.png)
 **図**: 自分の作業台での著者。
 
 ## ハックの裏にいる人々

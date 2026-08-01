@@ -9,6 +9,25 @@
   ],
   "crops": [
     {
+      "id": "dear-reader-author-workstation",
+      "figure_label": "The author at his workstation",
+      "source_render": "docs/public/images/page-028-render.png",
+      "source_size": [
+        864,
+        1296
+      ],
+      "box_type": "pixel",
+      "box": [
+        96,
+        706,
+        726,
+        1180
+      ],
+      "output_image": "docs/public/images/figures/dear-reader-author-workstation.png",
+      "target_markdown": "docs/ja/prologue.md",
+      "notes": "Author-at-workstation photo, bottom of PDF page 28 (printed p. 10) render, referenced from the prologue (near the DMCA/fair-use discussion). Previously the full page render (with the two preceding paragraphs of body text and the page header/number) was used in place of a cropped figure. Bounds derived by pixel darkness thresholding on rows/columns (photo block: rows ~710-1176, columns ~100-722), with a small margin added; excludes the printed caption line 'The author at his workstation.' below the photo, which is translated separately in the Markdown caption."
+    },
+    {
       "id": "ch01-fig1-1",
       "figure_label": "Figure 1-1",
       "source_render": "docs/public/images/page-034-render.png",
